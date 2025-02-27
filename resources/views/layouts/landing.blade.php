@@ -8,9 +8,9 @@
     <meta charset="UTF-8">
     <meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=0'>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title> Valex - Bootstrap 5 Premium Admin & Dashboard Template </title>
-    <meta name="Description" content="Bootstrap Responsive Admin Web Dashboard HTML5 Template">
-    <meta name="Author" content="Spruko Technologies Private Limited">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Favicon -->
     <link rel="icon" href="{{ asset('assets/images/brand-logos/favicon.ico') }}" type="image/x-icon">
@@ -58,56 +58,46 @@
         <div class="main-content landing-main">
 
             <!-- Start:: Section-1 -->
-            @include('landing.sections.section-1')
+            @include('landing.partials.section-1')
             <!-- End:: Section-1 -->
 
             <!-- Start:: Section-2 -->
-            @include('landing.sections.section-2')
+            @include('landing.partials.section-2')
             <!-- End:: Section-2 -->
 
             <!-- Start:: Section-3 -->
-            @include('landing.sections.section-3')
+            @include('landing.partials.section-3')
             <!-- End:: Section-3 -->
 
             <!-- Start:: Section-4 -->
-            @include('landing.sections.section-4')
+            @include('landing.partials.section-4')
             <!-- End:: Section-4 -->
 
             <!-- Start:: Section-5 -->
-            @include('landing.sections.section-5')
+            @include('landing.partials.section-5')
             <!-- End:: Section-5 -->
 
             <!-- Start:: Section-6 -->
-            @include('landing.sections.section-6')
+            @include('landing.partials.section-6')
             <!-- End:: Section-6 -->
 
             <!-- Start:: Section-7 -->
-            @include('landing.sections.section-7')
+            @include('landing.partials.section-7')
             <!-- End:: Section-7 -->
 
             <!-- Start:: Section-8 -->
-            @include('landing.sections.section-8')
+            @include('landing.partials.section-8')
             <!-- End:: Section-8 -->
 
             <!-- Start:: Section-9 -->
-            @include('landing.sections.section-9')
+            @include('landing.partials.section-9')
             <!-- End:: Section-9 -->
 
             <!-- Start:: Section-10 -->
-            @include('landing.sections.section-10')
+            @include('landing.partials.section-10')
             <!-- End:: Section-10 -->
 
-            <div class="text-center landing-main-footer py-3">
-                <span class="text-muted fs-15"> Copyright © <span id="year"></span> <a href="/"
-                        class="text-primary fw-semibold"><u>SiFood</u></a>.
-                    Designed with <span class="fa fa-heart text-danger"></span> by <a href="/"
-                        class="text-primary fw-semibold"><u>
-                            NovaDev</u>
-                    </a> All
-                    rights
-                    reserved
-                </span>
-            </div>
+            @include('landing.components.footer')
 
         </div>
         <!-- End::app-content -->

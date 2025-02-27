@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('layouts.index');
+    return view('layouts.landing');
 });
 
 Route::middleware([
@@ -12,6 +12,6 @@ Route::middleware([
     'verified',
 ])->group(function () {
     Route::get('/dashboard', function () {
-        return view('dashboard');
+        return view('admin.pages.dashboard');
     })->name('dashboard');
 });

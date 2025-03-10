@@ -1,4 +1,4 @@
-<section class="section section-bg " id="kategori">
+<section class="section section-bg" id="kategori">
     <div class="container text-center position-relative">
         <p class="fs-12 fw-semibold text-success mb-1">
             <span class="landing-section-heading">Kategori</span>

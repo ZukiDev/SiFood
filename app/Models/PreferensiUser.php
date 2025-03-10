@@ -12,6 +12,9 @@ class PreferensiUser extends Model
     protected $table = 'preferensi_user';
     protected $primaryKey = 'preferensi_id';
     protected $fillable = ['kategori_id', 'latitude', 'longitude', 'urutan_kriteria'];
+    protected $casts = [
+        'urutan_kriteria' => 'array',
+    ];
 
     public $timestamps = true;
 

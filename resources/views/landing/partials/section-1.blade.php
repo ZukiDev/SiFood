@@ -1,4 +1,4 @@
-<div class="landing-banner" id="cari">
+<div class="landing-banner h-100" id="cari">
     <section class="section">
         <div class="container main-banner-container">
             <div class="row justify-content-center text-center">
@@ -19,7 +19,7 @@
                             Pelajari Lebih Lanjut
                             <i class="fe fe-eye ms-2 align-middle"></i>
                         </a>
-                        <a href="#" class="m-1 btn btn-info">
+                        <a href="{{ route('preferensi.index') }}" class="m-1 btn btn-info">
                             Mulai Sekarang
                             <i class="fe fe-arrow-right ms-2 align-middle"></i>
                         </a>

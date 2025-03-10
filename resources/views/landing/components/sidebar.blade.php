@@ -23,36 +23,36 @@
                 <ul class="main-menu">
                     <!-- Start::slide -->
                     <li class="slide">
-                        <a class="side-menu__item" href="#cari">
-                            <span class="side-menu__label">Cari</span>
+                        <a class="side-menu__item" href="{{ url('/#cari') }}">
+                            <span class="side-menu__label text-black">Cari</span>
                         </a>
                     </li>
                     <!-- End::slide -->
                     <!-- Start::slide -->
                     <li class="slide">
-                        <a href="#kategori" class="side-menu__item">
-                            <span class="side-menu__label">Kategori</span>
+                        <a href="{{ url('/#kategori') }}" class="side-menu__item">
+                            <span class="side-menu__label text-black">Kategori</span>
                         </a>
                     </li>
                     <!-- End::slide -->
                     <!-- Start::slide -->
                     <li class="slide">
-                        <a href="#kriteria" class="side-menu__item">
-                            <span class="side-menu__label">Kriteria</span>
+                        <a href="{{ url('/#kriteria') }}" class="side-menu__item">
+                            <span class="side-menu__label text-black">Kriteria</span>
                         </a>
                     </li>
                     <!-- End::slide -->
                     <!-- Start::slide -->
                     <li class="slide">
-                        <a href="#tentang" class="side-menu__item">
-                            <span class="side-menu__label">Tentang</span>
+                        <a href="{{ url('/#tentang') }}" class="side-menu__item">
+                            <span class="side-menu__label text-black">Tentang</span>
                         </a>
                     </li>
                     <!-- End::slide -->
                     <!-- Start::slide -->
                     <li class="slide">
-                        <a href="#kontak" class="side-menu__item">
-                            <span class="side-menu__label">Kontak</span>
+                        <a href="{{ url('/#kontak') }}" class="side-menu__item">
+                            <span class="side-menu__label text-black">Kontak</span>
                         </a>
                     </li>
                     <!-- End::slide -->

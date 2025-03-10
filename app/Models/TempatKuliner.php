@@ -27,7 +27,7 @@ class TempatKuliner extends Model
 
     public function preferensi()
     {
-        return $this->hasOne(PreferensiTempatKuliner::class, 'tempat_id');
+        return $this->hasOne(PreferensiTempatKuliner::class, 'tempat_id', 'tempat_id');
     }
 
     public function nilaiKriteria()

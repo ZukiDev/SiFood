@@ -2,13 +2,16 @@
 
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\KriteriaController;
+use App\Http\Controllers\Landing\LandingController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\TempatKulinerController;
+use App\Http\Controllers\Landing\UserPreferenceController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('layouts.landing');
-});
+Route::get('/', [LandingController::class, 'index']);
+Route::get('/preferensi', [UserPreferenceController::class, 'index'])->name('preferensi.index');
+Route::post('/preferensi', [UserPreferenceController::class, 'store'])->name('preferensi.store');
+Route::get('/preferensi/hasil/{id}', [UserPreferenceController::class, 'hasil'])->name('preferensi.hasil');
 
 Route::middleware([
     'auth:sanctum',

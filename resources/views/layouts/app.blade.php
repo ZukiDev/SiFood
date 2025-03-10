@@ -45,21 +45,7 @@
     <!-- Jsvector Maps -->
     <link rel="stylesheet" href="{{ asset('assets/libs/jsvectormap/css/jsvectormap.min.css') }}">
 
-    <!-- JavaScript to Activate Sidebar -->
-    <script>
-        // Dapatkan path dari URL saat ini
-        const currentPath = window.location.pathname;
-
-        // Cek jika sedang berada di halaman Dashboard
-        if (currentPath === "/dashboard") {
-            document.getElementById("nav-dashboard").classList.add("active");
-        }
-
-        // Cek jika sedang berada di halaman Icons
-        // if (currentPath === "/icons") {
-        //     document.getElementById("nav-icons").classList.add("active");
-        // }
-    </script>
+    @stack('style')
 
 </head>
 
@@ -528,13 +514,13 @@
 
     </div>
 
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 
-    <!-- Scroll To Top -->
-    <div class="scrollToTop">
-        <span class="arrow"><i class="las la-angle-double-up"></i></span>
-    </div>
-    <div id="responsive-overlay"></div>
-    <!-- Scroll To Top -->
+    @stack('scripts')
+
+    <!-- Custom JS -->
+    <script src="{{ asset('assets/js/custom.js') }}"></script>
 
     <!-- Popper JS -->
     <script src="{{ asset('assets/libs/@popperjs/core/umd/popper.min.js') }}"></script>

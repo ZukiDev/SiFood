@@ -1,4 +1,4 @@
-<section class="section landing-testimonials section-bg" id="testimonials">
+{{-- <section class="section landing-testimonials section-bg" id="testimonials">
     <div class="container text-center">
         <p class="fs-12 fw-semibold text-success mb-1"><span class="landing-section-heading">TESTIMONIALS</span>
         </p>
@@ -252,4 +252,4 @@
             <div class="swiper-pagination mt-4"></div>
         </div>
     </div>
-</section>
+</section> --}}

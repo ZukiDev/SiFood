@@ -58,7 +58,7 @@ class UserPreferenceController extends Controller
             ->lazyById(50); // Ambil 50 tempat per iterasi
 
         $kriteria = json_decode($preferensi->urutan_kriteria, true);
-        $bobotROC = [0.370, 0.227, 0.156, 0.108, 0.072, 0.044, 0.020];
+        $bobotROC = getROCWeights(); // Fungsi ini mengembalikan bobot ROC yang sudah dihitung
 
         // Mapping nama kriteria ke bobot
         $bobot = [];

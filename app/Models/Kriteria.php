@@ -19,9 +19,4 @@ class Kriteria extends Model
     {
         return $this->hasMany(NilaiKriteria::class, 'kriteria_id');
     }
-
-    public function nilaiNormalisasi()
-    {
-        return $this->hasMany(NilaiNormalisasi::class, 'kriteria_id');
-    }
 }

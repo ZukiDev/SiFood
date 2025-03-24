@@ -91,14 +91,26 @@ class WeightedProductService
      */
     private function hitungJarak(float $lat1, float $lon1, float $lat2, float $lon2): float
     {
+        // Radius Bumi dalam kilometer
         $earthRadius = 6371;
-        $dLat = deg2rad($lat2 - $lat1);
-        $dLon = deg2rad($lon2 - $lon1);
 
-        $lat1 = deg2rad($lat1);
-        $lat2 = deg2rad($lat2);
+        // Langkah 1: Mengonversi koordinat dari derajat ke radian
+        $lat1 = deg2rad($lat1); // Mengonversi lat1 ke radian
+        $lon1 = deg2rad($lon1); // Mengonversi lon1 ke radian
+        $lat2 = deg2rad($lat2); // Mengonversi lat2 ke radian
+        $lon2 = deg2rad($lon2); // Mengonversi lon2 ke radian
 
-        $a = sin($dLat / 2) ** 2 + sin($dLon / 2) ** 2 * cos($lat1) * cos($lat2);
-        return $earthRadius * 2 * atan2(sqrt($a), sqrt(1 - $a));
+        // Langkah 2: Menghitung selisih antara latitudes dan longitudes
+        $dLat = $lat2 - $lat1; // Selisih latitude
+        $dLon = $lon2 - $lon1; // Selisih longitude
+
+        // Langkah 3: Menghitung jarak menggunakan rumus Haversine
+        $a = sin($dLat / 2) ** 2 + cos($lat1) * cos($lat2) * sin($dLon / 2) ** 2;
+        $c = 2 * atan2(sqrt($a), sqrt(1 - $a)); // Menghitung bagian c dari rumus
+
+        // Menghitung jarak dalam kilometer
+        $distance = $earthRadius * $c;
+
+        return $distance; // Mengembalikan jarak
     }
 }

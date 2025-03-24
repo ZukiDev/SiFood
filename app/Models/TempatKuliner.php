@@ -34,9 +34,4 @@ class TempatKuliner extends Model
     {
         return $this->hasMany(NilaiKriteria::class, 'tempat_id');
     }
-
-    public function nilaiNormalisasi()
-    {
-        return $this->hasMany(NilaiNormalisasi::class, 'tempat_id');
-    }
 }

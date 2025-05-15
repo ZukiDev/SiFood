@@ -43,6 +43,7 @@
                                                 <div class="cardprice-2">
                                                     <span class="number-font fs-14 text-muted">Skor</span>
                                                     <div class="fw-bold">{{ number_format($item['nilai_akhir'], 4) }}</div>
+                                                    <div class="fw-bold">{{ number_format($item['jarak'], 3) }} km</div>
                                                 </div>
                                             </div>
                                             <div>

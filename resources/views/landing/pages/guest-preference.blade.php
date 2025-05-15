@@ -38,7 +38,7 @@
                         <div class="mb-4">
                             <label for="kategori" class="form-label fw-semibold">Pilih Kategori Tempat Kuliner</label>
                             <select name="kategori_id" id="kategori" class="form-select" required>
-                                <option value="">-- Pilih Kategori --</option>
+                                <option>-- Pilih Kategori --</option>
                                 @foreach ($kategoris as $kategori)
                                     <option value="{{ $kategori->kategori_id }}">{{ $kategori->nama_kategori }}</option>
                                 @endforeach

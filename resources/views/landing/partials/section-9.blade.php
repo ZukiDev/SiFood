@@ -30,7 +30,8 @@
                             </div>
                             <div class="ms-3 text-start">
                                 <h6 class="mb-1 fw-medium">Email</h6>
-                                <p>e41212126@polije.ac.id</p>
+                                <p><a href="mailto:e41212126@polije.ac.id" class="text-muted">e41212126@polije.ac.id</a>
+                                </p>
                             </div>
                         </div>
                         <div class="d-flex mb-3">
@@ -39,7 +40,7 @@
                             </div>
                             <div class="ms-3 text-start">
                                 <h6 class="mb-1 fw-medium">Kontak</h6>
-                                <p>0858-9564-5840</p>
+                                <p><a href="https://wa.me/6285895645840" class="text-muted">0858-9564-5840</a></p>
                             </div>
                         </div>
                         <div class="d-flex mb-2">
@@ -57,34 +58,57 @@
             <div class="col-lg-8">
                 <div class="card shadow-none">
                     <div class="card-body px-5 pt-4">
-                        <div class="row mt-1">
-                            <div class="col-xl-6">
-                                <div class="form-group">
-                                    <label for="cusName" class="form-label">Nama <span
-                                            class="text-danger">*</span></label>
-                                    <input type="text" class="form-control" id="cusName"
-                                        placeholder="Masukkan nama Anda">
+                        <form id="whatsappForm" onsubmit="sendWhatsApp(event)">
+                            <div class="row mt-1">
+                                <div class="col-xl-12">
+                                    <div class="form-group">
+                                        <label for="cusName" class="form-label">Nama <span
+                                                class="text-danger">*</span></label>
+                                        <input type="text" class="form-control" id="cusName" name="cusName"
+                                            placeholder="Masukkan nama Anda" required>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-xl-6">
-                                <div class="form-group">
-                                    <label for="cusEmail" class="form-label">Email <span
-                                            class="text-danger">*</span></label>
-                                    <input type="text" class="form-control" id="cusEmail"
-                                        placeholder="Masukkan email Anda">
-                                </div>
+                            <div class="form-group">
+                                <label for="cusMessage" class="form-label">Pesan <span
+                                        class="text-danger">*</span></label>
+                                <textarea rows="4" class="form-control" id="cusMessage" name="cusMessage"
+                                    placeholder="Tulis pesan Anda di sini..." required></textarea>
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="cusMessage" class="form-label">Pesan <span class="text-danger">*</span></label>
-                            <textarea rows="4" class="form-control" id="cusMessage" placeholder="Tulis pesan Anda di sini..."></textarea>
-                        </div>
-                        <div class="form-group mb-2 pt-1">
-                            <button class="btn btn-primary">Kirim Pesan</button>
-                        </div>
+                            <div class="form-group mb-2 pt-1">
+                                <button type="submit" class="btn btn-success">
+                                    <i class="fab fa-whatsapp me-2"></i>Kirim Pesan Via WhatsApp
+                                </button>
+                                <a href="mailto:e41212126@polije.ac.id" class="btn btn-outline-danger ms-2">
+                                    <i class="fe fe-mail me-2"></i>Kirim Via Email
+                                </a>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <script>
+        function sendWhatsApp(event) {
+            event.preventDefault();
+
+            // Mengambil nilai input
+            const name = document.getElementById('cusName').value;
+            const message = document.getElementById('cusMessage').value;
+
+            // Format pesan
+            const formattedMessage =
+                `*Pesan dari Website SiFood*%0A%0A` +
+                `*Nama:* ${name}%0A` +
+                `*Pesan:*%0A${message}`;
+
+            // URL WhatsApp dengan pesan terformat
+            const waURL = `https://wa.me/6285895645840?text=${formattedMessage}`;
+
+            // Buka WhatsApp di tab baru
+            window.open(waURL, '_blank');
+        }
+    </script>
 </section>

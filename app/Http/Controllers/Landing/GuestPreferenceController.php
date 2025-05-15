@@ -4,12 +4,12 @@ namespace App\Http\Controllers\Landing;
 
 use App\Http\Controllers\Controller;
 use App\Models\Kategori;
-use App\Models\PreferensiUser;
+use App\Models\PreferensiGuest;
 use App\Models\TempatKuliner;
 use App\Services\WeightedProductService;
 use Illuminate\Http\Request;
 
-class UserPreferenceController extends Controller
+class GuestPreferenceController extends Controller
 {
     protected WeightedProductService $wpService;
 
@@ -18,14 +18,14 @@ class UserPreferenceController extends Controller
         $this->wpService = $wpService;
     }
 
-    // Menampilkan halaman form input preferensi user
+    // Menampilkan halaman form input preferensi guest
     public function index()
     {
         $kategoris = Kategori::all(); // Ambil semua kategori dari database
-        return view('landing.pages.user-preference', compact('kategoris')); // Tampilkan ke view
+        return view('landing.pages.guest-preference', compact('kategoris')); // Tampilkan ke view
     }
 
-    // Menyimpan data preferensi user ke database lalu redirect ke hasil
+    // Menyimpan data preferensi guest ke database lalu redirect ke hasil
     public function store(Request $request)
     {
         // Validasi input dari form
@@ -36,8 +36,8 @@ class UserPreferenceController extends Controller
             'urutan_kriteria' => 'required'
         ]);
 
-        // Simpan ke tabel preferensi_user
-        $preferensi = PreferensiUser::create([
+        // Simpan ke tabel preferensi_guest
+        $preferensi = PreferensiGuest::create([
             'latitude' => $request->latitude,
             'longitude' => $request->longitude,
             'kategori_id' => $request->kategori_id,
@@ -51,11 +51,13 @@ class UserPreferenceController extends Controller
     // Proses perhitungan WP dan menampilkan hasil rekomendasi
     public function hasil($id)
     {
-        $preferensi = PreferensiUser::findOrFail($id);
+        $preferensi = PreferensiGuest::findOrFail($id);
+        // dd($preferensi);
 
         $tempats = TempatKuliner::with('preferensi')
             ->where('kategori_id', $preferensi->kategori_id)
             ->lazyById(50); // Ambil 50 tempat per iterasi
+        // dd($tempats);
 
         $kriteria = json_decode($preferensi->urutan_kriteria, true);
         $bobotROC = getROCWeights(); // Fungsi ini mengembalikan bobot ROC yang sudah dihitung
@@ -68,7 +70,8 @@ class UserPreferenceController extends Controller
 
         // Hitung nilai WP melalui service
         $hasil = $this->wpService->hitung($preferensi, $tempats, $bobot);
+        // dd($hasil);
 
-        return view('landing.pages.hasil-rekomendasi', compact('hasil', 'preferensi'));
+        return view('landing.pages.hasil-rekomendasi', compact('hasil'));
     }
 }

@@ -10,8 +10,10 @@
             <div class="header-element">
                 <div class="horizontal-logo">
                     <a href="/" class="header-logo">
-                        <img src="{{ asset('assets/images/brand-logos/toggle-logo.png')}}" alt="logo" class="toggle-logo">
-                        <img src="{{ asset('assets/images/brand-logos/toggle-white.png')}}" alt="logo" class="toggle-white">
+                        <img src="{{ asset('assets/images/brand-logos/full-black.png') }}" alt="logo"
+                            class="toggle-logo">
+                        <img src="{{ asset('assets/images/brand-logos/full-white.png') }}" alt="logo"
+                            class="toggle-white">
                     </a>
                 </div>
             </div>

@@ -16,7 +16,8 @@
         </div>
         <div class="row justify-content-center align-items-center mx-0">
             <div class="col-xxl-4 col-xl-5 col-lg-5 text-center text-lg-start">
-                <img src="{{ asset('assets/images/media/pngs/9.png') }}" alt="Ilustrasi Tentang Kami" class="img-fluid">
+                <img src="{{ asset('assets/images/media/pngs/why.svg') }}" alt="Ilustrasi Tentang Kami"
+                    class="img-fluid">
             </div>
             <div class="col-xxl-8 col-xl-7 col-lg-7 pt-5 pb-0 px-lg-2 px-5 text-start">
                 <h4 class="text-lg-start fw-medium mb-4">Kenapa Memilih SiFood?</h4>
@@ -25,9 +26,10 @@
                         <div class="d-flex mb-3">
                             <span><i class='bx bxs-badge-check text-success fs-18'></i></span>
                             <div class="ms-3">
-                                <h6 class="fw-medium mb-1">Rekomendasi Berdasarkan Data</h6>
-                                <p class="text-muted mb-0">SiFood menggunakan metode perhitungan WP dan ROC untuk
-                                    memberikan rekomendasi yang objektif dan personal.</p>
+                                <h6 class="fw-medium mb-1">Data Multi-Platform</h6>
+                                <p class="text-muted mb-0">SiFood mengintegrasikan rating dan ulasan dari GoFood,
+                                    GrabFood, ShopeeFood, dan Google, memberikan perspektif lengkap tentang kualitas
+                                    tempat kuliner.</p>
                             </div>
                         </div>
                     </div>
@@ -35,9 +37,9 @@
                         <div class="d-flex mb-3">
                             <span><i class='bx bxs-badge-check text-success fs-18'></i></span>
                             <div class="ms-3">
-                                <h6 class="fw-medium mb-1">Beragam Kategori Kuliner</h6>
-                                <p class="text-muted mb-0">Dari warung sederhana hingga restoran dan café kekinian,
-                                    semua tersedia dalam satu aplikasi.</p>
+                                <h6 class="fw-medium mb-1">Rekomendasi Berdasarkan Lokasi</h6>
+                                <p class="text-muted mb-0">Menggunakan metode Haversine untuk menghitung jarak, sehingga
+                                    rekomendasi kuliner selalu relevan dengan lokasi Anda saat ini.</p>
                             </div>
                         </div>
                     </div>
@@ -45,9 +47,42 @@
                         <div class="d-flex mb-3">
                             <span><i class='bx bxs-badge-check text-success fs-18'></i></span>
                             <div class="ms-3">
-                                <h6 class="fw-medium mb-1">Mudah, Cepat, dan Praktis</h6>
-                                <p class="text-muted mb-0">Cukup tekan tombol "Get Started" dan dapatkan rekomendasi
-                                    kuliner terbaik hanya dalam beberapa detik.</p>
+                                <h6 class="fw-medium mb-1">Algoritma Rekomendasi Canggih</h6>
+                                <p class="text-muted mb-0">Kombinasi metode Weighted Product (WP) dan Rank Order
+                                    Centroid (ROC) menghasilkan rekomendasi yang objektif dan personal sesuai preferensi
+                                    Anda.</p>
+                            </div>
+                        </div>
+                    </div>
+                    {{-- <div class="col-12">
+                        <div class="d-flex mb-3">
+                            <span><i class='bx bxs-badge-check text-success fs-18'></i></span>
+                            <div class="ms-3">
+                                <h6 class="fw-medium mb-1">Database Kuliner Lokal Terlengkap</h6>
+                                <p class="text-muted mb-0">Mencakup lebih dari ratusan tempat kuliner di Sidoarjo, dari
+                                    warung tradisional hingga café kekinian, semua dalam satu aplikasi.</p>
+                            </div>
+                        </div>
+                    </div> --}}
+                    <div class="col-12">
+                        <div class="d-flex mb-3">
+                            <span><i class='bx bxs-badge-check text-success fs-18'></i></span>
+                            <div class="ms-3">
+                                <h6 class="fw-medium mb-1">Personalisasi Preferensi</h6>
+                                <p class="text-muted mb-0">Anda bebas memilih kategori dan memprioritaskan kriteria yang
+                                    penting, seperti rating, jarak, atau ketersediaan menu, untuk rekomendasi yang
+                                    benar-benar sesuai keinginan.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="d-flex mb-3">
+                            <span><i class='bx bxs-badge-check text-success fs-18'></i></span>
+                            <div class="ms-3">
+                                <h6 class="fw-medium mb-1">Akses Cepat ke Platform Pesan-Antar</h6>
+                                <p class="text-muted mb-0">Langsung terhubung dengan GoFood, GrabFood, dan ShopeeFood
+                                    melalui tautan di setiap rekomendasi, memudahkan Anda memesan tanpa perlu mencari
+                                    ulang.</p>
                             </div>
                         </div>
                     </div>

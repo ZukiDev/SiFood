@@ -14,9 +14,4 @@ class Kriteria extends Model
     protected $fillable = ['nama_kriteria', 'bobot', 'deskripsi'];
 
     public $timestamps = true;
-
-    public function nilaiKriteria()
-    {
-        return $this->hasMany(NilaiKriteria::class, 'kriteria_id');
-    }
 }

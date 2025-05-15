@@ -4,11 +4,11 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePreferensiUsersTable extends Migration
+class CreatePreferensiGuestsTable extends Migration
 {
     public function up()
     {
-        Schema::create('preferensi_user', function (Blueprint $table) {
+        Schema::create('preferensi_guest', function (Blueprint $table) {
             $table->id('preferensi_id');
             $table->decimal('latitude', 10, 7)->nullable();
             $table->decimal('longitude', 10, 7)->nullable();
@@ -26,6 +26,6 @@ class CreatePreferensiUsersTable extends Migration
 
     public function down()
     {
-        Schema::dropIfExists('preferensi_user');
+        Schema::dropIfExists('preferensi_guest');
     }
 }

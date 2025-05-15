@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class PreferensiUser extends Model
+class PreferensiGuest extends Model
 {
     use HasFactory;
 
-    protected $table = 'preferensi_user';
+    protected $table = 'preferensi_guest';
     protected $primaryKey = 'preferensi_id';
     protected $fillable = ['kategori_id', 'latitude', 'longitude', 'urutan_kriteria'];
     protected $casts = [

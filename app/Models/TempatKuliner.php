@@ -13,8 +13,6 @@ class TempatKuliner extends Model
     protected $primaryKey = 'tempat_id';
     protected $fillable = ['kategori_id', 'nama', 'alamat', 'latitude', 'longitude'];
 
-    public $timestamps = true;
-
     public function kategori()
     {
         return $this->belongsTo(Kategori::class, 'kategori_id');
@@ -28,10 +26,5 @@ class TempatKuliner extends Model
     public function preferensi()
     {
         return $this->hasOne(PreferensiTempatKuliner::class, 'tempat_id', 'tempat_id');
-    }
-
-    public function nilaiKriteria()
-    {
-        return $this->hasMany(NilaiKriteria::class, 'tempat_id');
     }
 }

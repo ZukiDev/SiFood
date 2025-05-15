@@ -25,8 +25,8 @@
                             <div class="card item-card">
                                 <div class="card-body pb-0">
                                     <div class="text-center zoom">
-                                        <img class="w-100 rounded-3" src="{{ asset('assets/images/food-placeholder.jpg') }}"
-                                            alt="img">
+                                        <img class="w-100 rounded-3"
+                                            src="{{ asset('assets/images/default/foto-tempat.png') }}" alt="img">
                                     </div>
                                     <div class="card-body px-0 pb-3">
                                         <div class="row">
@@ -57,6 +57,9 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <a href="{{ route('preferensi.detail', $tempat->tempat_id) }}" target="_blank"
+                                        class="btn btn-sm btn-secondary mb-3 w-100"><i class="fe fe-eye me-2"></i>
+                                        Lihat Detail</a>
                                 </div>
                                 <div class="card-footer text-center">
                                     <div class="text-center px-2">
@@ -72,12 +75,12 @@
                                         @endif
                                         @if ($preferensi->link_shopeefood)
                                             <a href="{{ $preferensi->link_shopeefood }}" target="_blank"
-                                                class="btn btn-sm btn-warning mb-2 w-100"><i
+                                                class="btn btn-sm btn-danger mb-2 w-100"><i
                                                     class="ri-shopping-bag-3-line me-2"></i> ShopeeFood</a>
                                         @endif
                                         @if ($preferensi->link_grabfood)
                                             <a href="{{ $preferensi->link_grabfood }}" target="_blank"
-                                                class="btn btn-sm btn-success mb-2 w-100"><i
+                                                class="btn btn-sm btn-warning mb-2 w-100"><i
                                                     class="ri-takeaway-line me-2"></i> GrabFood</a>
                                         @endif
                                     </div>

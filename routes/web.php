@@ -12,6 +12,7 @@ Route::get('/', [LandingController::class, 'index']);
 Route::get('/preferensi', [GuestPreferenceController::class, 'index'])->name('preferensi.index');
 Route::post('/preferensi', [GuestPreferenceController::class, 'store'])->name('preferensi.store');
 Route::get('/preferensi/hasil/{id}', [GuestPreferenceController::class, 'hasil'])->name('preferensi.hasil');
+Route::get('/preferensi/hasil/detail/{id}', [GuestPreferenceController::class, 'detail'])->name('preferensi.detail');
 
 Route::middleware([
     'auth:sanctum',

@@ -74,4 +74,12 @@ class GuestPreferenceController extends Controller
 
         return view('landing.pages.hasil-rekomendasi', compact('hasil'));
     }
+
+    public function detail($id)
+    {
+        $tempat = TempatKuliner::with(['kategori', 'preferensi', 'menu'])
+            ->findOrFail($id);
+
+        return view('landing.pages.detail-rekomendasi', compact('tempat'));
+    }
 }

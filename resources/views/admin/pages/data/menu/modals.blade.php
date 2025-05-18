@@ -6,7 +6,7 @@
                 <h5 class="modal-title" id="modalAddMenuLabel">Tambah Menu</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="{{ route('menus.store-batch') }}" method="POST">
+            <form action="{{ route('menus.store') }}" method="POST">
                 @csrf
                 <div class="modal-body">
                     <div class="mb-4">

@@ -36,38 +36,29 @@ class MenuController extends Controller
      */
     public function store(Request $request)
     {
-        try {
-            $request->validate([
-                'tempat_id' => 'required|exists:tempat_kuliner,tempat_id',
-                'nama_menu' => 'required|string|max:255',
-                'deskripsi' => 'nullable|string',
-            ]);
+        // try {
+        //     $request->validate([
+        //         'tempat_id' => 'required|exists:tempat_kuliner,tempat_id',
+        //         'nama_menu' => 'required|string|max:255',
+        //         'deskripsi' => 'nullable|string',
+        //     ]);
 
-            Menu::create([
-                'tempat_id' => $request->tempat_id,
-                'nama_menu' => $request->nama_menu,
-                'deskripsi' => $request->deskripsi,
-            ]);
+        //     Menu::create([
+        //         'tempat_id' => $request->tempat_id,
+        //         'nama_menu' => $request->nama_menu,
+        //         'deskripsi' => $request->deskripsi,
+        //     ]);
 
-            // Update menu counts
-            $this->updateMenuCounts($request->tempat_id);
+        //     // Update menu counts
+        //     $this->updateMenuCounts($request->tempat_id);
 
-            return redirect()->route('menus.index')
-                ->with('success', 'Menu berhasil ditambahkan.');
-        } catch (\Throwable $e) {
-            Log::error('Error saat menyimpan menu: ' . $e->getMessage());
-            return redirect()->back()->with('error', 'Gagal menyimpan data menu.');
-        }
-    }
+        //     return redirect()->route('menus.index')
+        //         ->with('success', 'Menu berhasil ditambahkan.');
+        // } catch (\Throwable $e) {
+        //     Log::error('Error saat menyimpan menu: ' . $e->getMessage());
+        //     return redirect()->back()->with('error', 'Gagal menyimpan data menu.');
+        // }
 
-    /**
-     * Store multiple menu items at once.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function storeBatch(Request $request)
-    {
         try {
             $request->validate([
                 'tempat_id' => 'required|exists:tempat_kuliner,tempat_id',
@@ -103,6 +94,50 @@ class MenuController extends Controller
             return redirect()->back()->with('error', 'Gagal menyimpan data batch menu.');
         }
     }
+
+    /**
+     * Store multiple menu items at once.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    // public function storeBatch(Request $request)
+    // {
+    //     try {
+    //         $request->validate([
+    //             'tempat_id' => 'required|exists:tempat_kuliner,tempat_id',
+    //             'menu' => 'required|array',
+    //         ]);
+
+    //         $tempat_id = $request->tempat_id;
+    //         $menuItems = $request->menu;
+    //         $addedCount = 0;
+
+    //         foreach ($menuItems as $item) {
+    //             // Skip if nama_menu is empty
+    //             if (empty($item['nama_menu'])) {
+    //                 continue;
+    //             }
+
+    //             Menu::create([
+    //                 'tempat_id' => $tempat_id,
+    //                 'nama_menu' => $item['nama_menu'],
+    //                 'deskripsi' => $item['deskripsi'],
+    //             ]);
+
+    //             $addedCount++;
+    //         }
+
+    //         // Update preferensi_tempat_kuliner counts
+    //         $this->updateMenuCounts($tempat_id);
+
+    //         return redirect()->route('menus.index')
+    //             ->with('success', "$addedCount menu berhasil ditambahkan.");
+    //     } catch (\Throwable $e) {
+    //         Log::error('Error saat menyimpan batch menu: ' . $e->getMessage());
+    //         return redirect()->back()->with('error', 'Gagal menyimpan data batch menu.');
+    //     }
+    // }
 
     /**
      * Update the specified resource in storage.

@@ -28,6 +28,4 @@ Route::middleware([
         'menus' => MenuController::class,
         'tempat-kuliners' => TempatKulinerController::class,
     ]);
-
-    Route::post('/menus', [MenuController::class, 'storeBatch'])->name('menus.store-batch');
 });

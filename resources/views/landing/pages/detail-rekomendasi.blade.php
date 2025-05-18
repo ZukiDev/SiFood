@@ -194,7 +194,7 @@
         </div>
     </section>
 
-    @if ($tempat->menu && $tempat->menu->count() > 0)
+    {{-- @if ($tempat->menu && $tempat->menu->count() > 0)
         <section class="section section-bg" id="menu">
             <div class="container">
                 <p class="fs-12 fw-semibold text-success mb-1 text-center">
@@ -225,7 +225,7 @@
                 </div>
             </div>
         </section>
-    @endif
+    @endif --}}
 
     @php
         // Filter menu berdasarkan deskripsi yang mengandung kata "makanan" atau "minuman"

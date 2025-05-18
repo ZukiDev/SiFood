@@ -18,7 +18,7 @@
     <div class="row">
         <div class="col-xl-2 col-lg-6 col-md-6 col-sm-12 mb-3">
             <div class="card overflow-hidden sales-card bg-primary-gradient h-100">
-                <div class="px-3 pt-3 pb-2 pt-0">
+                <div class="px-3 pt-3 pb-2">
                     <div>
                         <h6 class="mb-3 fs-12 text-fixed-white">TOTAL TEMPAT KULINER</h6>
                     </div>
@@ -45,7 +45,7 @@
 
         <div class="col-xl-2 col-lg-6 col-md-6 col-sm-12 mb-3">
             <div class="card overflow-hidden sales-card bg-danger-gradient h-100">
-                <div class="px-3 pt-3 pb-2 pt-0">
+                <div class="px-3 pt-3 pb-2">
                     <div>
                         <h6 class="mb-3 fs-12 text-fixed-white">TOTAL MENU</h6>
                     </div>
@@ -72,7 +72,7 @@
 
         <div class="col-xl-2 col-lg-6 col-md-6 col-sm-12 mb-3">
             <div class="card overflow-hidden sales-card bg-success-gradient h-100">
-                <div class="px-3 pt-3 pb-2 pt-0">
+                <div class="px-3 pt-3 pb-2">
                     <div>
                         <h6 class="mb-3 fs-12 text-fixed-white">TOTAL MAKANAN</h6>
                     </div>
@@ -99,7 +99,7 @@
 
         <div class="col-xl-2 col-lg-6 col-md-6 col-sm-12 mb-3">
             <div class="card overflow-hidden sales-card bg-warning-gradient h-100">
-                <div class="px-3 pt-3 pb-2 pt-0">
+                <div class="px-3 pt-3 pb-2">
                     <div>
                         <h6 class="mb-3 fs-12 text-fixed-white">TOTAL MINUMAN</h6>
                     </div>
@@ -126,7 +126,7 @@
 
         <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 mb-3"> <!-- Kolom terakhir lebih lebar -->
             <div class="card overflow-hidden sales-card bg-secondary-gradient h-100">
-                <div class="px-3 pt-3 pb-2 pt-0">
+                <div class="px-3 pt-3 pb-2">
                     <div>
                         <h6 class="mb-3 fs-12 text-fixed-white">TOTAL PENGGUNA</h6>
                     </div>
@@ -163,7 +163,7 @@
                         <a href="{{ route('tempat-kuliners.index') }}" class="btn btn-primary btn-sm">Lihat Semua</a>
                     </div>
                     <p class="fs-12 text-muted mb-0">
-                        Tempat kuliner dengan rating tertinggi dari berbagai platform.
+                        Tempat kuliner dengan rating tertinggi dari platform Shopee Food.
                     </p>
                 </div>
                 <div class="card-body">
@@ -246,14 +246,6 @@
                                 class="float-end fs-11 text-muted">{{ \Carbon\Carbon::now()->format('d M Y') }}</a>
                             <p class="mb-0 text-muted fs-12">{{ $latestActivity['recentPreferences'] }} pencarian
                                 rekomendasi baru</p>
-                        </li>
-                        <li class="mt-0 mb-0">
-                            <i class="fe fe-map-pin bg-purple-gradient text-fixed-white product-icon"></i>
-                            <span class="fw-medium mb-4 fs-14">Lokasi Populer</span>
-                            <a href="javascript:void(0);"
-                                class="float-end fs-11 text-muted">{{ \Carbon\Carbon::now()->format('d M Y') }}</a>
-                            <p class="mb-0 text-muted fs-12">{{ $latestActivity['popularLocation'] }} pencarian di area
-                                populer</p>
                         </li>
                     </ul>
                 </div>

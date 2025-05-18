@@ -67,11 +67,6 @@ class DashboardController extends Controller
                 ->count(),
             'newMenus' => Menu::where('created_at', '>=', Carbon::now()->subDays(7))->count(),
             'recentPreferences' => PreferensiGuest::where('created_at', '>=', Carbon::now()->subDays(7))->count(),
-            'popularLocation' => PreferensiGuest::where('created_at', '>=', Carbon::now()->subDays(7))
-                ->where(function ($q) {
-                    $q->whereNotNull('latitude')->whereNotNull('longitude');
-                })
-                ->count()
         ];
 
         // Total preferensi untuk perhitungan persentase

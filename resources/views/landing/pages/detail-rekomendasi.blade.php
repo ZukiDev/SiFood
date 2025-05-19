@@ -269,7 +269,7 @@
                             @foreach ($makanan as $menu)
                                 <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
                                     <div class="card h-100 text-center p-3 shadow-sm">
-                                        <img src="{{ asset('assets/images/logo-default.png') }}"
+                                        <img src="{{ asset('assets/images/default/food.svg') }}"
                                             alt="{{ $menu->nama_menu }}" class="img-fluid rounded mb-3"
                                             style="max-height: 180px; object-fit: contain;">
                                         <h5 class="fw-semibold">{{ $menu->nama_menu }}</h5>
@@ -294,7 +294,7 @@
                             @foreach ($minuman as $menu)
                                 <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
                                     <div class="card h-100 text-center p-3 shadow-sm">
-                                        <img src="{{ asset('assets/images/logo-default.png') }}"
+                                        <img src="{{ asset('assets/images/default/drink.svg') }}"
                                             alt="{{ $menu->nama_menu }}" class="img-fluid rounded mb-3"
                                             style="max-height: 180px; object-fit: contain;">
                                         <h5 class="fw-semibold">{{ $menu->nama_menu }}</h5>
@@ -319,7 +319,7 @@
                             @foreach ($lainnya as $menu)
                                 <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
                                     <div class="card h-100 text-center p-3 shadow-sm">
-                                        <img src="{{ asset('assets/images/logo-default.png') }}"
+                                        <img src="{{ asset('assets/images/default/food.svg') }}"
                                             alt="{{ $menu->nama_menu }}" class="img-fluid rounded mb-3"
                                             style="max-height: 180px; object-fit: contain;">
                                         <h5 class="fw-semibold">{{ $menu->nama_menu }}</h5>

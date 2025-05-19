@@ -48,47 +48,49 @@
                                 <div class="col-md-6">
                                     <div class="mb-3">
                                         <label class="form-label">Rating Google</label>
-                                        <input type="number" step="0.1" class="form-control" name="rating_google">
+                                        <input type="number" step="0.1" class="form-control" name="rating_google"
+                                            required>
                                     </div>
                                     <div class="mb-3">
                                         <label class="form-label">Rating GoFood</label>
-                                        <input type="number" step="0.1" class="form-control" name="rating_gofood">
+                                        <input type="number" step="0.1" class="form-control" name="rating_gofood"
+                                            required>
                                     </div>
                                     <div class="mb-3">
                                         <label class="form-label">Rating ShopeeFood</label>
                                         <input type="number" step="0.1" class="form-control"
-                                            name="rating_shopeefood">
+                                            name="rating_shopeefood" required>
                                     </div>
                                     <div class="mb-3">
                                         <label class="form-label">Rating GrabFood</label>
-                                        <input type="number" step="0.1" class="form-control"
-                                            name="rating_grabfood">
+                                        <input type="number" step="0.1" class="form-control" name="rating_grabfood"
+                                            required>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="mb-3">
                                         <label class="form-label">Jumlah Makanan</label>
-                                        <input type="number" class="form-control" name="jumlah_makanan">
+                                        <input type="number" class="form-control" name="jumlah_makanan" required>
                                     </div>
                                     <div class="mb-3">
                                         <label class="form-label">Jumlah Minuman</label>
-                                        <input type="number" class="form-control" name="jumlah_minuman">
+                                        <input type="number" class="form-control" name="jumlah_minuman" required>
                                     </div>
                                     <div class="mb-3">
                                         <label class="form-label">Link Gmaps</label>
-                                        <input type="url" class="form-control" name="link_gmaps">
+                                        <input type="url" class="form-control" name="link_gmaps" required>
                                     </div>
                                     <div class="mb-3">
                                         <label class="form-label">Link GoFood</label>
-                                        <input type="url" class="form-control" name="link_gofood">
+                                        <input type="url" class="form-control" name="link_gofood" required>
                                     </div>
                                     <div class="mb-3">
                                         <label class="form-label">Link ShopeeFood</label>
-                                        <input type="url" class="form-control" name="link_shopeefood">
+                                        <input type="url" class="form-control" name="link_shopeefood" required>
                                     </div>
                                     <div class="mb-3">
                                         <label class="form-label">Link GrabFood</label>
-                                        <input type="url" class="form-control" name="link_grabfood">
+                                        <input type="url" class="form-control" name="link_grabfood" required>
                                     </div>
                                 </div>
                             </div>
@@ -160,54 +162,54 @@
                                     <div class="mb-3">
                                         <label class="form-label">Rating Google</label>
                                         <input type="number" step="0.1" class="form-control"
-                                            id="editRatingGoogle" name="rating_google">
+                                            id="editRatingGoogle" name="rating_google" required>
                                     </div>
                                     <div class="mb-3">
                                         <label class="form-label">Rating GoFood</label>
                                         <input type="number" step="0.1" class="form-control"
-                                            id="editRatingGofood" name="rating_gofood">
+                                            id="editRatingGofood" name="rating_gofood" required>
                                     </div>
                                     <div class="mb-3">
                                         <label class="form-label">Rating ShopeeFood</label>
                                         <input type="number" step="0.1" class="form-control"
-                                            id="editRatingShopeefood" name="rating_shopeefood">
+                                            id="editRatingShopeefood" name="rating_shopeefood" required>
                                     </div>
                                     <div class="mb-3">
                                         <label class="form-label">Rating GrabFood</label>
                                         <input type="number" step="0.1" class="form-control"
-                                            id="editRatingGrabfood" name="rating_grabfood">
+                                            id="editRatingGrabfood" name="rating_grabfood" required>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="mb-3">
                                         <label class="form-label">Jumlah Makanan</label>
                                         <input type="number" class="form-control" id="editJumlahMakanan"
-                                            name="jumlah_makanan">
+                                            name="jumlah_makanan" required>
                                     </div>
                                     <div class="mb-3">
                                         <label class="form-label">Jumlah Minuman</label>
                                         <input type="number" class="form-control" id="editJumlahMinuman"
-                                            name="jumlah_minuman">
+                                            name="jumlah_minuman" required>
                                     </div>
                                     <div class="mb-3">
                                         <label class="form-label">Link Gmaps</label>
                                         <input type="url" class="form-control" id="editLinkGmaps"
-                                            name="link_gmaps">
+                                            name="link_gmaps" required>
                                     </div>
                                     <div class="mb-3">
                                         <label class="form-label">Link GoFood</label>
                                         <input type="url" class="form-control" id="editLinkGofood"
-                                            name="link_gofood">
+                                            name="link_gofood" required>
                                     </div>
                                     <div class="mb-3">
                                         <label class="form-label">Link ShopeeFood</label>
                                         <input type="url" class="form-control" id="editLinkShopeefood"
-                                            name="link_shopeefood">
+                                            name="link_shopeefood" required>
                                     </div>
                                     <div class="mb-3">
                                         <label class="form-label">Link GrabFood</label>
                                         <input type="url" class="form-control" id="editLinkGrabfood"
-                                            name="link_grabfood">
+                                            name="link_grabfood" required>
                                     </div>
                                 </div>
                             </div>

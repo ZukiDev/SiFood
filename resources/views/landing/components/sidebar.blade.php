@@ -23,8 +23,8 @@
                 <ul class="main-menu">
                     <!-- Start::slide -->
                     <li class="slide">
-                        <a class="side-menu__item" href="{{ url('/#cari') }}">
-                            <span class="side-menu__label text-black">Cari</span>
+                        <a class="side-menu__item" href="{{ url('/#mulai') }}">
+                            <span class="side-menu__label text-black">Mulai</span>
                         </a>
                     </li>
                     <!-- End::slide -->

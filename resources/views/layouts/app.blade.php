@@ -503,6 +503,7 @@
         <!-- Start::app-content -->
         <div class="main-content app-content">
             <div class="container-fluid">
+                @include('admin.components.alert')
 
                 @yield('content')
 
@@ -514,8 +515,76 @@
 
     </div>
 
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            @if (session('success'))
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Berhasil!',
+                    text: "{{ session('success') }}",
+                    showConfirmButton: false,
+                    timer: 3000
+                });
+            @endif
+
+            @if (session('error'))
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error!',
+                    text: "{{ session('error') }}",
+                    showConfirmButton: true
+                });
+            @endif
+
+            @if (session('warning'))
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Perhatian!',
+                    text: "{{ session('warning') }}",
+                    showConfirmButton: true
+                });
+            @endif
+
+            @if (session('info'))
+                Swal.fire({
+                    icon: 'info',
+                    title: 'Informasi',
+                    text: "{{ session('info') }}",
+                    showConfirmButton: true
+                });
+            @endif
+
+            @if ($errors->any())
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Terdapat Error',
+                    html: `<ul class="text-start">
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                    </ul>`,
+                    showConfirmButton: true
+                });
+            @endif
+        });
+    </script>
+
     <script src="https://code.jquery.com/jquery-3.6.1.min.js"
         integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+
+    <script>
+        // Auto-dismiss alerts after 5 seconds
+        document.addEventListener("DOMContentLoaded", function() {
+            // Auto dismiss alerts after 5 seconds
+            setTimeout(function() {
+                const alerts = document.querySelectorAll('.alert');
+                alerts.forEach(function(alert) {
+                    const bsAlert = new bootstrap.Alert(alert);
+                    bsAlert.close();
+                });
+            }, 3000);
+        });
+    </script>
 
     @stack('scripts')
 
@@ -544,7 +613,6 @@
     <!-- Color Picker JS -->
     <script src="{{ asset('assets/libs/@simonwep/pickr/pickr.es5.min.js') }}"></script>
 
-
     <!-- Apex Charts JS -->
     <script src="{{ asset('assets/libs/apexcharts/apexcharts.min.js') }}"></script>
 
@@ -560,6 +628,10 @@
 
     <!-- Custom-Switcher JS -->
     <script src="{{ asset('assets/js/custom-switcher.min.js') }}"></script>
+
+    <!-- Alerts JS -->
+    <script src="{{ asset('assets/js/alerts.js') }}"></script>
+
     <!-- Custom JS -->
     <script src="{{ asset('assets/js/custom.js') }}"></script>
 

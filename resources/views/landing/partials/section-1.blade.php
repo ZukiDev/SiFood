@@ -1,4 +1,4 @@
-<div class="landing-banner h-100" id="cari">
+<div class="landing-banner h-100" id="mulai">
     <section class="section">
         <div class="container main-banner-container">
             <div class="row justify-content-center text-center">

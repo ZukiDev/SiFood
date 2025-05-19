@@ -15,7 +15,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="bobotKriteria" class="form-label">Bobot</label>
-                        <input type="text" class="form-control" id="bobotKriteria" name="bobot">
+                        <input type="text" class="form-control" id="bobotKriteria" name="bobot" required>
                     </div>
                     <div class="mb-3">
                         <label for="deskripsiKriteria" class="form-label">Deskripsi</label>
@@ -71,7 +71,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="editBobotKriteria" class="form-label">Bobot</label>
-                        <input type="text" class="form-control" id="editBobotKriteria" name="bobot">
+                        <input type="text" class="form-control" id="editBobotKriteria" name="bobot" required>
                     </div>
                     <div class="mb-3">
                         <label for="editDeskripsiKriteria" class="form-label">Deskripsi</label>

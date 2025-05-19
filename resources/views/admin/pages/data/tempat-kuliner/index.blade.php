@@ -35,18 +35,44 @@
                     document.getElementById("viewJumlahMinuman").textContent = this.getAttribute(
                         "data-jumlah_minuman") || '0';
 
-                    // Handle Link Platform
-                    let links = ['link_gmaps', 'link_gofood', 'link_shopeefood', 'link_grabfood'];
-                    links.forEach(link => {
-                        let elem = document.getElementById("view" + link.charAt(0)
-                            .toUpperCase() + link.slice(1));
-                        let url = this.getAttribute("data-" + link);
-                        if (url) {
-                            elem.innerHTML = `<a href="${url}" target="_blank">Lihat</a>`;
-                        } else {
-                            elem.innerHTML = "-";
-                        }
-                    });
+                    // Handle Link Platform - Perbaikan
+                    const linkGmaps = this.getAttribute("data-link_gmaps");
+                    const linkGofood = this.getAttribute("data-link_gofood");
+                    const linkShopeefood = this.getAttribute("data-link_shopeefood");
+                    const linkGrabfood = this.getAttribute("data-link_grabfood");
+
+                    // Set href attribute pada tag <a>
+                    if (linkGmaps) {
+                        document.getElementById("viewLinkGmaps").href = linkGmaps;
+                        document.getElementById("viewLinkGmaps").textContent = "Lihat";
+                    } else {
+                        document.getElementById("viewLinkGmaps").removeAttribute("href");
+                        document.getElementById("viewLinkGmaps").textContent = "-";
+                    }
+
+                    if (linkGofood) {
+                        document.getElementById("viewLinkGofood").href = linkGofood;
+                        document.getElementById("viewLinkGofood").textContent = "Lihat";
+                    } else {
+                        document.getElementById("viewLinkGofood").removeAttribute("href");
+                        document.getElementById("viewLinkGofood").textContent = "-";
+                    }
+
+                    if (linkShopeefood) {
+                        document.getElementById("viewLinkShopeefood").href = linkShopeefood;
+                        document.getElementById("viewLinkShopeefood").textContent = "Lihat";
+                    } else {
+                        document.getElementById("viewLinkShopeefood").removeAttribute("href");
+                        document.getElementById("viewLinkShopeefood").textContent = "-";
+                    }
+
+                    if (linkGrabfood) {
+                        document.getElementById("viewLinkGrabfood").href = linkGrabfood;
+                        document.getElementById("viewLinkGrabfood").textContent = "Lihat";
+                    } else {
+                        document.getElementById("viewLinkGrabfood").removeAttribute("href");
+                        document.getElementById("viewLinkGrabfood").textContent = "-";
+                    }
                 });
             });
 
@@ -81,13 +107,21 @@
                     document.getElementById("editJumlahMinuman").value = this.getAttribute(
                         "data-jumlah_minuman") || '0';
 
-                    // Handle Link Platform
-                    let links = ['link_gmaps', 'link_gofood', 'link_shopeefood', 'link_grabfood'];
-                    links.forEach(link => {
-                        document.getElementById("edit" + link.charAt(0).toUpperCase() + link
-                                .slice(1)).value =
-                            this.getAttribute("data-" + link) || '';
-                    });
+                    // Handle Link Platform - Perbaikan
+                    document.getElementById("editLinkGmaps").value = this.getAttribute(
+                        "data-link_gmaps") || '';
+                    document.getElementById("editLinkGofood").value = this.getAttribute(
+                        "data-link_gofood") || '';
+                    document.getElementById("editLinkShopeefood").value = this.getAttribute(
+                        "data-link_shopeefood") || '';
+                    document.getElementById("editLinkGrabfood").value = this.getAttribute(
+                        "data-link_grabfood") || '';
+
+                    // Log untuk debug
+                    console.log("Link GMaps:", this.getAttribute("data-link_gmaps"));
+                    console.log("Link GoFood:", this.getAttribute("data-link_gofood"));
+                    console.log("Link ShopeeFood:", this.getAttribute("data-link_shopeefood"));
+                    console.log("Link GrabFood:", this.getAttribute("data-link_grabfood"));
                 });
             });
 
@@ -190,8 +224,8 @@
                                             </button>
 
                                             <button class="btn btn-danger btn-icon deleteTempatBtn"
-                                                data-id="{{ $tempat->tempat_id }}" data-bs-toggle="modal"
-                                                data-bs-target="#modalDeleteTempat">
+                                                data-id="{{ $tempat->tempat_id }}" data-nama="{{ $tempat->nama }}"
+                                                data-bs-toggle="modal" data-bs-target="#modalDeleteTempat">
                                                 <i class="ri-delete-bin-line"></i>
                                             </button>
                                         </td>

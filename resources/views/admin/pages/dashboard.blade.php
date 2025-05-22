@@ -175,9 +175,9 @@
                                     <th>Nama Tempat</th>
                                     <th>Kategori</th>
                                     <th>Google</th>
-                                    <th>ShopeeFood</th>
-                                    <th>GrabFood</th>
-                                    <th>GoFood</th>
+                                    <th>Shopee Food</th>
+                                    <th>Grab Food</th>
+                                    <th>Go Food</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -190,13 +190,13 @@
                                                 class="badge bg-success">{{ number_format($place->preferensi->rating_google ?? 0, 1) }}</span>
                                         </td>
                                         <td><span
-                                                class="badge bg-danger">{{ number_format($place->preferensi->rating_shopeefood ?? 0, 1) }}</span>
+                                                class="badge bg-danger">{{ number_format($place->preferensi->rating_shopee_food ?? 0, 1) }}</span>
                                         </td>
                                         <td><span
-                                                class="badge bg-warning">{{ number_format($place->preferensi->rating_grabfood ?? 0, 1) }}</span>
+                                                class="badge bg-warning">{{ number_format($place->preferensi->rating_grab_food ?? 0, 1) }}</span>
                                         </td>
                                         <td><span
-                                                class="badge bg-primary">{{ number_format($place->preferensi->rating_gofood ?? 0, 1) }}</span>
+                                                class="badge bg-primary">{{ number_format($place->preferensi->rating_go_food ?? 0, 1) }}</span>
                                         </td>
                                     </tr>
                                 @endforeach

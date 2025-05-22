@@ -67,9 +67,9 @@ class TempatKulinerSeeder extends Seeder
             PreferensiTempatKuliner::create([
                 'tempat_id' => $tempat->tempat_id,
                 'rating_google' => $item[5],
-                'rating_gofood' => $item[6],
-                'rating_grabfood' => $item[7],
-                'rating_shopeefood' => $item[8],
+                'rating_go_food' => $item[6],
+                'rating_grab_food' => $item[7],
+                'rating_shopee_food' => $item[8],
                 'jumlah_makanan' => $item[9],
                 'jumlah_minuman' => $item[10],
                 'link_gmaps' => $item[11],

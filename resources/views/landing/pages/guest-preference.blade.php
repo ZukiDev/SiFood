@@ -38,7 +38,7 @@
                         <div class="mb-4">
                             <label for="kategori" class="form-label fw-semibold">Pilih Kategori Tempat Kuliner</label>
                             <select name="kategori_id" id="kategori" class="form-select" required>
-                                <option>-- Pilih Kategori --</option>
+                                <option value={{ null }}>-- Pilih Kategori --</option>
                                 @foreach ($kategoris as $kategori)
                                     <option value="{{ $kategori->kategori_id }}">{{ $kategori->nama_kategori }}</option>
                                 @endforeach
@@ -49,18 +49,36 @@
                             <div class="card-header">
                                 <h5 class="fw-bold">Urutkan Kriteria Berdasarkan Preferensimu</h5>
                                 <small class="text-muted">Geser kriteria di bawah sesuai dengan prioritasmu (atas = paling
-                                    penting)</small>
+                                    penting). Bobot akan dihitung otomatis menggunakan metode ROC.</small>
                             </div>
                             <div class="card-body">
                                 <ul id="sortable-kriteria" class="list-group">
-                                    <li class="list-group-item" data-kriteria="Jarak">Jarak</li>
-                                    <li class="list-group-item" data-kriteria="Rating Google">Rating Google</li>
-                                    <li class="list-group-item" data-kriteria="Rating Shopee Food">Rating Shopee Food</li>
-                                    <li class="list-group-item" data-kriteria="Rating Go Food">Rating Go Food</li>
-                                    <li class="list-group-item" data-kriteria="Rating Grab Food">Rating Grab Food</li>
-                                    <li class="list-group-item" data-kriteria="Jumlah Makanan">Jumlah Makanan</li>
-                                    <li class="list-group-item" data-kriteria="Jumlah Minuman">Jumlah Minuman</li>
+                                    @foreach ($kriterias as $kriteria)
+                                        <li class="list-group-item d-flex justify-content-between align-items-center"
+                                            data-kriteria="{{ $kriteria->nama_kriteria }}">
+                                            <div>
+                                                <strong>{{ $kriteria->nama_kriteria }}</strong>
+                                                @if ($kriteria->deskripsi)
+                                                    <br><small class="text-muted">{{ $kriteria->deskripsi }}</small>
+                                                @endif
+                                            </div>
+                                            <div class="text-end">
+                                                <i class="ri-drag-move-2-line text-muted"></i>
+                                            </div>
+                                        </li>
+                                    @endforeach
                                 </ul>
+
+                                <!-- Info ROC -->
+                                <div class="mt-3">
+                                    <div class="alert alert-info" role="alert">
+                                        <small><i class="ri-information-line me-1"></i>
+                                            <strong>Info ROC:</strong> Sistem akan menghitung bobot secara otomatis
+                                            berdasarkan urutan prioritas yang Anda tentukan. Kriteria teratas akan mendapat
+                                            bobot tertinggi.
+                                        </small>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
@@ -70,7 +88,7 @@
                         <!-- Submit Button -->
                         <div class="text-center mt-4">
                             <button type="submit" class="btn btn-primary btn-xl px-5 w-100">
-                                Cari Rekomendasi
+                                <i class="ri-search-line me-2"></i>Cari Rekomendasi
                             </button>
                         </div>
                     </div>
@@ -103,16 +121,47 @@
 
         Sortable.create(sortableList, {
             animation: 150,
+            ghostClass: 'sortable-ghost',
+            chosenClass: 'sortable-chosen',
+            dragClass: 'sortable-drag',
             onEnd: function() {
-                const items = [...sortableList.children];
-                const kriteriaOrder = items.map(item => item.dataset.kriteria);
-                urutanInput.value = JSON.stringify(kriteriaOrder);
+                updateKriteriaOrder();
             }
         });
 
+        // Fungsi untuk update urutan kriteria
+        function updateKriteriaOrder() {
+            const items = [...sortableList.children];
+            const kriteriaOrder = items.map(item => item.dataset.kriteria);
+            urutanInput.value = JSON.stringify(kriteriaOrder);
+
+            console.log('Urutan kriteria:', kriteriaOrder);
+        }
+
         // Inisialisasi awal saat belum digeser
-        const initialItems = [...sortableList.children];
-        const initialOrder = initialItems.map(item => item.dataset.kriteria);
-        urutanInput.value = JSON.stringify(initialOrder);
+        updateKriteriaOrder();
     </script>
+
+    <style>
+        .sortable-ghost {
+            opacity: 0.4;
+        }
+
+        .sortable-chosen {
+            background-color: #f8f9fa;
+        }
+
+        .sortable-drag {
+            background-color: #e9ecef;
+        }
+
+        .list-group-item {
+            cursor: move;
+            user-select: none;
+        }
+
+        .list-group-item:hover {
+            background-color: #f8f9fa;
+        }
+    </style>
 @endsection

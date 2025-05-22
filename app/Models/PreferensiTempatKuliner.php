@@ -18,9 +18,9 @@ class PreferensiTempatKuliner extends Model
         'link_shopeefood',
         'link_grabfood',
         'rating_google',
-        'rating_gofood',
-        'rating_shopeefood',
-        'rating_grabfood',
+        'rating_go_food',
+        'rating_shopee_food',
+        'rating_grab_food',
         'jumlah_makanan',
         'jumlah_minuman'
     ];

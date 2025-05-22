@@ -42,17 +42,18 @@
                                             <div class="col-3 text-end">
                                                 <div class="cardprice-2">
                                                     <span class="number-font fs-14 text-muted">Skor</span>
-                                                    <div class="fw-bold">{{ number_format($item['nilai_akhir'], 4) }}</div>
-                                                    <div class="fw-bold">{{ number_format($item['jarak'], 3) }} km</div>
+                                                    <div class="fw-bold">{{ number_format($item['nilai_akhir'], 3) }}
+                                                    </div>
+                                                    <div class="fw-bold">{{ floor($item['jarak'] * 100) / 100 }} km</div>
                                                 </div>
                                             </div>
                                             <div>
                                                 <p class="shop-description fs-13 mt-2 text-muted mb-0">
                                                     <i class="ri-star-fill fs-6 text-warning"></i> Google:
                                                     {{ $preferensi->rating_google }} |
-                                                    GoFood: {{ $preferensi->rating_gofood }} |
-                                                    ShopeeFood: {{ $preferensi->rating_shopeefood }} |
-                                                    GrabFood: {{ $preferensi->rating_grabfood }}
+                                                    GoFood: {{ $preferensi->rating_go_food }} |
+                                                    ShopeeFood: {{ $preferensi->rating_shopee_food }} |
+                                                    GrabFood: {{ $preferensi->rating_grab_food }}
                                                 </p>
                                             </div>
                                         </div>

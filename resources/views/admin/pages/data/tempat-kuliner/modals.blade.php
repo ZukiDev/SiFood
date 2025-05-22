@@ -53,18 +53,18 @@
                                     </div>
                                     <div class="mb-3">
                                         <label class="form-label">Rating GoFood</label>
-                                        <input type="number" step="0.1" class="form-control" name="rating_gofood"
+                                        <input type="number" step="0.1" class="form-control" name="rating_go_food"
                                             required>
                                     </div>
                                     <div class="mb-3">
                                         <label class="form-label">Rating ShopeeFood</label>
                                         <input type="number" step="0.1" class="form-control"
-                                            name="rating_shopeefood" required>
+                                            name="rating_shopee_food" required>
                                     </div>
                                     <div class="mb-3">
                                         <label class="form-label">Rating GrabFood</label>
-                                        <input type="number" step="0.1" class="form-control" name="rating_grabfood"
-                                            required>
+                                        <input type="number" step="0.1" class="form-control"
+                                            name="rating_grab_food" required>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -167,17 +167,17 @@
                                     <div class="mb-3">
                                         <label class="form-label">Rating GoFood</label>
                                         <input type="number" step="0.1" class="form-control"
-                                            id="editRatingGofood" name="rating_gofood" required>
+                                            id="editRatingGofood" name="rating_go_food" required>
                                     </div>
                                     <div class="mb-3">
                                         <label class="form-label">Rating ShopeeFood</label>
                                         <input type="number" step="0.1" class="form-control"
-                                            id="editRatingShopeefood" name="rating_shopeefood" required>
+                                            id="editRatingShopeefood" name="rating_shopee_food" required>
                                     </div>
                                     <div class="mb-3">
                                         <label class="form-label">Rating GrabFood</label>
                                         <input type="number" step="0.1" class="form-control"
-                                            id="editRatingGrabfood" name="rating_grabfood" required>
+                                            id="editRatingGrabfood" name="rating_grab_food" required>
                                     </div>
                                 </div>
                                 <div class="col-md-6">

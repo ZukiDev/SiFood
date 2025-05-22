@@ -142,7 +142,7 @@
                                                 </div>
                                             @endif
 
-                                            @if ($tempat->preferensi->rating_gofood)
+                                            @if ($tempat->preferensi->rating_go_food)
                                                 <div class="col-6 col-sm-3 mb-2">
                                                     <div class="p-2 border rounded bg-light">
                                                         <h6 class="mb-1 fs-14">GoFood</h6>
@@ -151,13 +151,13 @@
                                                                 <i class="ri-star-fill"></i>
                                                             </div>
                                                             <span
-                                                                class="fw-semibold">{{ $tempat->preferensi->rating_gofood }}</span>
+                                                                class="fw-semibold">{{ $tempat->preferensi->rating_go_food }}</span>
                                                         </div>
                                                     </div>
                                                 </div>
                                             @endif
 
-                                            @if ($tempat->preferensi->rating_shopeefood)
+                                            @if ($tempat->preferensi->rating_shopee_food)
                                                 <div class="col-6 col-sm-3 mb-2">
                                                     <div class="p-2 border rounded bg-light">
                                                         <h6 class="mb-1 fs-14">ShopeeFood</h6>
@@ -166,13 +166,13 @@
                                                                 <i class="ri-star-fill"></i>
                                                             </div>
                                                             <span
-                                                                class="fw-semibold">{{ $tempat->preferensi->rating_shopeefood }}</span>
+                                                                class="fw-semibold">{{ $tempat->preferensi->rating_shopee_food }}</span>
                                                         </div>
                                                     </div>
                                                 </div>
                                             @endif
 
-                                            @if ($tempat->preferensi->rating_grabfood)
+                                            @if ($tempat->preferensi->rating_grab_food)
                                                 <div class="col-6 col-sm-3 mb-2">
                                                     <div class="p-2 border rounded bg-light">
                                                         <h6 class="mb-1 fs-14">GrabFood</h6>
@@ -181,7 +181,7 @@
                                                                 <i class="ri-star-fill"></i>
                                                             </div>
                                                             <span
-                                                                class="fw-semibold">{{ $tempat->preferensi->rating_grabfood }}</span>
+                                                                class="fw-semibold">{{ $tempat->preferensi->rating_grab_food }}</span>
                                                         </div>
                                                     </div>
                                                 </div>

@@ -45,10 +45,10 @@ class DashboardController extends Controller
         // Tempat kuliner teratas (berdasarkan rating)
         $topPlaces = TempatKuliner::with(['kategori', 'preferensi'])
             ->whereHas('preferensi', function ($q) {
-                $q->whereNotNull('rating_shopeefood');
+                $q->whereNotNull('rating_shopee_food');
             })
             ->join('preferensi_tempat_kuliner', 'tempat_kuliner.tempat_id', '=', 'preferensi_tempat_kuliner.tempat_id')
-            ->orderBy('preferensi_tempat_kuliner.rating_shopeefood', 'desc')
+            ->orderBy('preferensi_tempat_kuliner.rating_shopee_food', 'desc')
             ->select('tempat_kuliner.*')
             ->limit(3)
             ->get();

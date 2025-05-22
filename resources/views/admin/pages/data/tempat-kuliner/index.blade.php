@@ -25,11 +25,11 @@
                     document.getElementById("viewRatingGoogle").textContent = this.getAttribute(
                         "data-rating_google") || '-';
                     document.getElementById("viewRatingGofood").textContent = this.getAttribute(
-                        "data-rating_gofood") || '-';
+                        "data-rating_go_food") || '-';
                     document.getElementById("viewRatingShopeefood").textContent = this.getAttribute(
-                        "data-rating_shopeefood") || '-';
+                        "data-rating_shopee_food") || '-';
                     document.getElementById("viewRatingGrabfood").textContent = this.getAttribute(
-                        "data-rating_grabfood") || '-';
+                        "data-rating_grab_food") || '-';
                     document.getElementById("viewJumlahMakanan").textContent = this.getAttribute(
                         "data-jumlah_makanan") || '0';
                     document.getElementById("viewJumlahMinuman").textContent = this.getAttribute(
@@ -97,11 +97,11 @@
                     document.getElementById("editRatingGoogle").value = this.getAttribute(
                         "data-rating_google") || '';
                     document.getElementById("editRatingGofood").value = this.getAttribute(
-                        "data-rating_gofood") || '';
+                        "data-rating_go_food") || '';
                     document.getElementById("editRatingShopeefood").value = this.getAttribute(
-                        "data-rating_shopeefood") || '';
+                        "data-rating_shopee_food") || '';
                     document.getElementById("editRatingGrabfood").value = this.getAttribute(
-                        "data-rating_grabfood") || '';
+                        "data-rating_grab_food") || '';
                     document.getElementById("editJumlahMakanan").value = this.getAttribute(
                         "data-jumlah_makanan") || '0';
                     document.getElementById("editJumlahMinuman").value = this.getAttribute(
@@ -178,9 +178,9 @@
                                         <td>{{ $tempat->nama }}</td>
                                         <td>{{ $tempat->kategori->nama_kategori }}</td>
                                         <td>{{ $tempat->preferensi->rating_google ?? '-' }}</td>
-                                        <td>{{ $tempat->preferensi->rating_gofood ?? '-' }}</td>
-                                        <td>{{ $tempat->preferensi->rating_shopeefood ?? '-' }}</td>
-                                        <td>{{ $tempat->preferensi->rating_grabfood ?? '-' }}</td>
+                                        <td>{{ $tempat->preferensi->rating_go_food ?? '-' }}</td>
+                                        <td>{{ $tempat->preferensi->rating_shopee_food ?? '-' }}</td>
+                                        <td>{{ $tempat->preferensi->rating_grab_food ?? '-' }}</td>
                                         <td>{{ $tempat->preferensi->jumlah_makanan ?? '0' }}</td>
                                         <td>{{ $tempat->preferensi->jumlah_minuman ?? '0' }}</td>
                                         <td>
@@ -191,9 +191,9 @@
                                                 data-latitude="{{ $tempat->latitude }}"
                                                 data-longitude="{{ $tempat->longitude }}"
                                                 data-rating_google="{{ $tempat->preferensi->rating_google ?? '' }}"
-                                                data-rating_gofood="{{ $tempat->preferensi->rating_gofood ?? '' }}"
-                                                data-rating_shopeefood="{{ $tempat->preferensi->rating_shopeefood ?? '' }}"
-                                                data-rating_grabfood="{{ $tempat->preferensi->rating_grabfood ?? '' }}"
+                                                data-rating_go_food="{{ $tempat->preferensi->rating_go_food ?? '' }}"
+                                                data-rating_shopee_food="{{ $tempat->preferensi->rating_shopee_food ?? '' }}"
+                                                data-rating_grab_food="{{ $tempat->preferensi->rating_grab_food ?? '' }}"
                                                 data-jumlah_makanan="{{ $tempat->preferensi->jumlah_makanan ?? '0' }}"
                                                 data-jumlah_minuman="{{ $tempat->preferensi->jumlah_minuman ?? '0' }}"
                                                 data-link_gmaps="{{ $tempat->preferensi->link_gmaps ?? '' }}"
@@ -210,9 +210,9 @@
                                                 data-latitude="{{ $tempat->latitude }}"
                                                 data-longitude="{{ $tempat->longitude }}"
                                                 data-rating_google="{{ $tempat->preferensi->rating_google ?? '' }}"
-                                                data-rating_gofood="{{ $tempat->preferensi->rating_gofood ?? '' }}"
-                                                data-rating_shopeefood="{{ $tempat->preferensi->rating_shopeefood ?? '' }}"
-                                                data-rating_grabfood="{{ $tempat->preferensi->rating_grabfood ?? '' }}"
+                                                data-rating_go_food="{{ $tempat->preferensi->rating_go_food ?? '' }}"
+                                                data-rating_shopee_food="{{ $tempat->preferensi->rating_shopee_food ?? '' }}"
+                                                data-rating_grab_food="{{ $tempat->preferensi->rating_grab_food ?? '' }}"
                                                 data-jumlah_makanan="{{ $tempat->preferensi->jumlah_makanan ?? '0' }}"
                                                 data-jumlah_minuman="{{ $tempat->preferensi->jumlah_minuman ?? '0' }}"
                                                 data-link_gmaps="{{ $tempat->preferensi->link_gmaps ?? '' }}"

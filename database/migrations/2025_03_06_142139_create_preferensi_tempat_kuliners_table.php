@@ -18,9 +18,9 @@ class CreatePreferensiTempatKulinersTable extends Migration
             $table->string('link_grabfood')->nullable();
 
             $table->float('rating_google')->nullable();
-            $table->float('rating_gofood')->nullable();
-            $table->float('rating_shopeefood')->nullable();
-            $table->float('rating_grabfood')->nullable();
+            $table->float('rating_go_food')->nullable();
+            $table->float('rating_shopee_food')->nullable();
+            $table->float('rating_grab_food')->nullable();
 
             $table->integer('jumlah_makanan')->default(0);
             $table->integer('jumlah_minuman')->default(0);

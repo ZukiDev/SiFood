@@ -28,4 +28,7 @@ Route::middleware([
         'menus' => MenuController::class,
         'tempat-kuliners' => TempatKulinerController::class,
     ]);
+
+    // Route untuk manual recalculate bobot ROC
+    Route::get('/recalculate-weights', [KriteriaController::class, 'recalculateWeights'])->name('kriterias.recalculate');
 });

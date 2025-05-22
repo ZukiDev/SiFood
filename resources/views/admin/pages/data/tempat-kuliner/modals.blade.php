@@ -256,14 +256,10 @@
                         <p><strong>Rating GrabFood:</strong> <span id="viewRatingGrabfood"></span></p>
                         <p><strong>Jumlah Makanan:</strong> <span id="viewJumlahMakanan"></span></p>
                         <p><strong>Jumlah Minuman:</strong> <span id="viewJumlahMinuman"></span></p>
-                        <p><strong>Link Gmaps:</strong> <a id="viewLinkGmaps" href="#"
-                                target="_blank">Lihat</a></p>
-                        <p><strong>Link GoFood:</strong> <a id="viewLinkGofood" href="#"
-                                target="_blank">Lihat</a></p>
-                        <p><strong>Link ShopeeFood:</strong> <a id="viewLinkShopeefood" href="#"
-                                target="_blank">Lihat</a></p>
-                        <p><strong>Link GrabFood:</strong> <a id="viewLinkGrabfood" href="#"
-                                target="_blank">Lihat</a></p>
+                        <p><strong>Link Gmaps:</strong> <span id="viewLinkGmaps">-</span></p>
+                        <p><strong>Link GoFood:</strong> <span id="viewLinkGofood">-</span></p>
+                        <p><strong>Link ShopeeFood:</strong> <span id="viewLinkShopeefood">-</span></p>
+                        <p><strong>Link GrabFood:</strong> <span id="viewLinkGrabfood">-</span></p>
                     </div>
                 </div>
             </div>

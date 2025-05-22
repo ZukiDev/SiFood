@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Landing;
 
 use App\Http\Controllers\Controller;
 use App\Models\Kategori;
+use App\Models\Kriteria;
 use App\Models\PreferensiGuest;
 use App\Models\TempatKuliner;
 use App\Services\WeightedProductService;
@@ -22,7 +23,8 @@ class GuestPreferenceController extends Controller
     public function index()
     {
         $kategoris = Kategori::all(); // Ambil semua kategori dari database
-        return view('landing.pages.guest-preference', compact('kategoris')); // Tampilkan ke view
+        $kriterias = Kriteria::orderBy('nama_kriteria')->get(); // Ambil semua kriteria dari database
+        return view('landing.pages.guest-preference', compact('kategoris', 'kriterias'));
     }
 
     // Menyimpan data preferensi guest ke database lalu redirect ke hasil
@@ -52,27 +54,52 @@ class GuestPreferenceController extends Controller
     public function hasil($id)
     {
         $preferensi = PreferensiGuest::findOrFail($id);
-        // dd($preferensi);
 
         $tempats = TempatKuliner::with('preferensi')
             ->where('kategori_id', $preferensi->kategori_id)
             ->lazyById(50); // Ambil 50 tempat per iterasi
-        // dd($tempats);
 
-        $kriteria = json_decode($preferensi->urutan_kriteria, true);
-        $bobotROC = getROCWeights(); // Fungsi ini mengembalikan bobot ROC yang sudah dihitung
+        // Ambil urutan kriteria dari preferensi
+        $urutanKriteria = json_decode($preferensi->urutan_kriteria, true);
 
-        // Mapping nama kriteria ke bobot
-        $bobot = [];
-        foreach ($kriteria as $index => $nama) {
-            $bobot[$nama] = $bobotROC[$index];
-        }
+        // Map bobot berdasarkan index urutan
+        $bobot = $this->mapBobotByIndex($urutanKriteria);
 
         // Hitung nilai WP melalui service
         $hasil = $this->wpService->hitung($preferensi, $tempats, $bobot);
-        // dd($hasil);
 
         return view('landing.pages.hasil-rekomendasi', compact('hasil'));
+    }
+
+    /**
+     * Memetakan bobot kriteria dari database berdasarkan urutan prioritas pengguna
+     *
+     * @param array $urutanKriteria Array urutan kriteria berdasarkan prioritas
+     * @return array Array bobot untuk setiap kriteria
+     */
+    private function mapBobotByIndex(array $urutanKriteria): array
+    {
+        // Ambil semua kriteria dari database diurutkan berdasarkan bobot (descending)
+        $kriterias = Kriteria::orderByDesc('bobot')->get();
+
+        // Siapkan array untuk menyimpan bobot
+        $bobot = [];
+
+        // Map bobot dari database ke urutan preferensi user
+        foreach ($urutanKriteria as $index => $namaKriteria) {
+            // Ambil kriteria dari database berdasarkan index (urutan bobot)
+            $kriteria = $kriterias->get($index);
+
+            if ($kriteria) {
+                // Gunakan bobot dari database sesuai dengan urutan index
+                $bobot[$namaKriteria] = $kriteria->bobot;
+            } else {
+                // Fallback jika index melebihi jumlah kriteria di database
+                $bobot[$namaKriteria] = 0;
+            }
+        }
+
+        return $bobot;
     }
 
     public function detail($id)

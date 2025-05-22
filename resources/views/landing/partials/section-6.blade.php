@@ -1,4 +1,4 @@
-<section class="section" id="menu">
+{{-- <section class="section" id="menu">
     <div class="container">
         <p class="fs-12 fw-semibold text-success mb-1 text-center">
             <span class="landing-section-heading">Menu</span>
@@ -45,4 +45,4 @@
             </div>
         </div>
     </div>
-</section>
+</section> --}}

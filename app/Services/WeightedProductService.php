@@ -154,9 +154,6 @@ class WeightedProductService
         ) {
             return self::MAX_DISTANCE;
         }
-        // Titik 1
-        $lat1 = (float)-7.337858;
-        $lon1 = (float)112.7035296;
 
         // Radius Bumi dalam kilometer
         $R = 6371;

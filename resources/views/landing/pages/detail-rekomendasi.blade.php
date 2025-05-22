@@ -31,7 +31,7 @@
                         <div class="card-body">
                             <div class="row align-items-center">
                                 <div class="col-lg-4 col-md-5 text-center mb-4 mb-md-0">
-                                    <img src="{{ asset('assets/images/default/foto-tempat.png') }}"
+                                    <img src="{{ asset('assets/images/default/tempat-kuliner.svg') }}"
                                         alt="{{ $tempat->nama }}" class="img-fluid rounded-3" style="max-height: 300px;">
                                 </div>
                                 <div class="col-lg-8 col-md-7">
@@ -52,7 +52,24 @@
 
                                     @if ($tempat->preferensi)
                                         <div class="row mb-4">
-                                            @if ($tempat->preferensi->jumlah_makanan > 0)
+                                            @if ($tempat->preferensi->jumlah_makanan == 1)
+                                                <div class="col-6 col-sm-4 mb-3">
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="me-2">
+                                                            <span
+                                                                class="avatar avatar-sm rounded-circle bg-primary-transparent">
+                                                                <i class="ri-restaurant-2-line"></i>
+                                                            </span>
+                                                        </div>
+                                                        <div>
+                                                            <span class="d-block text-muted fs-12">Jumlah Makanan</span>
+                                                            <span class="fw-semibold">Tidak ada</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            @endif
+
+                                            @if ($tempat->preferensi->jumlah_makanan > 1)
                                                 <div class="col-6 col-sm-4 mb-3">
                                                     <div class="d-flex align-items-center">
                                                         <div class="me-2">
@@ -71,7 +88,24 @@
                                                 </div>
                                             @endif
 
-                                            @if ($tempat->preferensi->jumlah_minuman > 0)
+                                            @if ($tempat->preferensi->jumlah_minuman == 1)
+                                                <div class="col-6 col-sm-4 mb-3">
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="me-2">
+                                                            <span
+                                                                class="avatar avatar-sm rounded-circle bg-info-transparent">
+                                                                <i class="ri-cup-line"></i>
+                                                            </span>
+                                                        </div>
+                                                        <div>
+                                                            <span class="d-block text-muted fs-12">Jumlah Minuman</span>
+                                                            <span class="fw-semibold">Tidak ada</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            @endif
+
+                                            @if ($tempat->preferensi->jumlah_minuman > 1)
                                                 <div class="col-6 col-sm-4 mb-3">
                                                     <div class="d-flex align-items-center">
                                                         <div class="me-2">
@@ -243,7 +277,7 @@
         });
     @endphp
 
-    @if ($tempat->menu && $tempat->menu->count() > 0)
+    @if ($tempat->menu && $tempat->menu->count() > 2)
         <section class="section section-bg" id="menu">
             <div class="container">
                 <p class="fs-12 fw-semibold text-success mb-1 text-center">
@@ -260,7 +294,7 @@
                 </div>
 
                 <!-- Makanan Section -->
-                @if ($makanan->count() > 0)
+                @if ($makanan->count() > 1)
                     <div class="mb-5">
                         <h4 class="fw-semibold mb-4 text-center">
                             <i class="ri-restaurant-2-line me-2"></i> Makanan
@@ -285,7 +319,7 @@
                 @endif
 
                 <!-- Minuman Section -->
-                @if ($minuman->count() > 0)
+                @if ($minuman->count() > 1)
                     <div class="mb-5">
                         <h4 class="fw-semibold mb-4 text-center">
                             <i class="ri-cup-line me-2"></i> Minuman
@@ -310,7 +344,7 @@
                 @endif
 
                 <!-- Menu Lainnya -->
-                @if ($lainnya->count() > 0)
+                @if ($lainnya->count() > 1)
                     <div>
                         <h4 class="fw-semibold mb-4 text-center">
                             <i class="ri-restaurant-line me-2"></i> Menu Lainnya

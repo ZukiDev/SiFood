@@ -289,7 +289,7 @@
                 <div class="row justify-content-center mb-4">
                     <div class="col-xl-8">
                         <p class="text-muted fs-15 mb-3 fw-normal text-center">
-                            Berikut adalah daftar menu yang tersedia di {{ $tempat->nama }}.
+                            Berikut beberapa daftar menu yang tersedia di {{ $tempat->nama }}.
                         </p>
                     </div>
                 </div>

@@ -15,7 +15,7 @@ class CreateTempatKulinersTable extends Migration
             $table->text('alamat');
             $table->decimal('latitude', 10, 7);
             $table->decimal('longitude', 10, 7);
-
+            $table->string('foto')->nullable();
             $table->foreign('kategori_id')
                 ->references('kategori_id')
                 ->on('kategori')

@@ -31,4 +31,7 @@ Route::middleware([
 
     // Route untuk manual recalculate bobot ROC
     Route::get('/recalculate-weights', [KriteriaController::class, 'recalculateWeights'])->name('kriterias.recalculate');
+
+    // Route khusus untuk delete foto
+    Route::delete('tempat-kuliners/{id}/delete-foto', [TempatKulinerController::class, 'deleteFoto'])->name('tempat-kuliners.delete-foto');
 });

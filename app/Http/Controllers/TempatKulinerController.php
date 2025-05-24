@@ -7,6 +7,9 @@ use App\Models\PreferensiTempatKuliner;
 use App\Models\Kategori;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class TempatKulinerController extends Controller
 {
@@ -31,6 +34,7 @@ class TempatKulinerController extends Controller
             'alamat' => 'required|string',
             'latitude' => 'nullable|numeric',
             'longitude' => 'nullable|numeric',
+            'foto' => 'nullable|image|mimes:jpeg,jpg,png,gif,webp|max:5120', // 5MB
             'link_gmaps' => 'nullable|url',
             'link_gofood' => 'nullable|url',
             'link_shopeefood' => 'nullable|url',
@@ -41,10 +45,20 @@ class TempatKulinerController extends Controller
             'rating_grab_food' => 'nullable|numeric|min:0|max:5',
             'jumlah_makanan' => 'nullable|integer|min:0',
             'jumlah_minuman' => 'nullable|integer|min:0',
+        ], [
+            'foto.image' => 'File harus berupa gambar.',
+            'foto.mimes' => 'Format gambar harus: jpeg, jpg, png, gif, atau webp.',
+            'foto.max' => 'Ukuran gambar maksimal 5MB.',
         ]);
 
         DB::beginTransaction();
         try {
+            // Handle upload foto
+            $fotoFileName = null;
+            if ($request->hasFile('foto')) {
+                $fotoFileName = $this->uploadFoto($request->file('foto'));
+            }
+
             // Simpan data tempat kuliner
             $tempat = TempatKuliner::create([
                 'nama' => $request->nama,
@@ -52,6 +66,7 @@ class TempatKulinerController extends Controller
                 'alamat' => $request->alamat,
                 'latitude' => $request->latitude,
                 'longitude' => $request->longitude,
+                'foto' => $fotoFileName,
             ]);
 
             // Simpan data preferensi
@@ -73,6 +88,7 @@ class TempatKulinerController extends Controller
             return redirect()->back()->with('success', 'Tempat kuliner berhasil ditambahkan!');
         } catch (\Exception $e) {
             DB::rollBack();
+            Log::error('Error creating tempat kuliner: ' . $e->getMessage());
             return redirect()->back()->with('error', 'Gagal menambahkan data: ' . $e->getMessage());
         }
     }
@@ -88,6 +104,7 @@ class TempatKulinerController extends Controller
             'alamat' => 'required|string',
             'latitude' => 'nullable|numeric',
             'longitude' => 'nullable|numeric',
+            'foto' => 'nullable|image|mimes:jpeg,jpg,png,gif,webp|max:5120', // 5MB
             'link_gmaps' => 'nullable|url',
             'link_gofood' => 'nullable|url',
             'link_shopeefood' => 'nullable|url',
@@ -98,17 +115,35 @@ class TempatKulinerController extends Controller
             'rating_grab_food' => 'nullable|numeric|min:0|max:5',
             'jumlah_makanan' => 'nullable|integer|min:0',
             'jumlah_minuman' => 'nullable|integer|min:0',
+        ], [
+            'foto.image' => 'File harus berupa gambar.',
+            'foto.mimes' => 'Format gambar harus: jpeg, jpg, png, gif, atau webp.',
+            'foto.max' => 'Ukuran gambar maksimal 5MB.',
         ]);
 
         DB::beginTransaction();
         try {
             $tempat = TempatKuliner::findOrFail($id);
+
+            // Handle upload foto baru
+            $fotoFileName = $tempat->foto; // Keep existing foto
+            if ($request->hasFile('foto')) {
+                // Hapus foto lama jika ada
+                if ($tempat->foto) {
+                    $this->deleteFotoFile($tempat->foto);
+                }
+                // Upload foto baru
+                $fotoFileName = $this->uploadFoto($request->file('foto'));
+            }
+
+            // Update data tempat kuliner
             $tempat->update([
                 'nama' => $request->nama,
                 'kategori_id' => $request->kategori_id,
                 'alamat' => $request->alamat,
                 'latitude' => $request->latitude,
                 'longitude' => $request->longitude,
+                'foto' => $fotoFileName,
             ]);
 
             // Update atau buat data preferensi
@@ -132,25 +167,99 @@ class TempatKulinerController extends Controller
             return redirect()->back()->with('success', 'Data berhasil diperbarui!');
         } catch (\Exception $e) {
             DB::rollBack();
+            Log::error('Error updating tempat kuliner: ' . $e->getMessage());
             return redirect()->back()->with('error', 'Gagal memperbarui data: ' . $e->getMessage());
         }
     }
 
     /**
-     * Menghapus data Tempat Kuliner (otomatis hapus Preferensi karena `onDelete cascade`).
+     * Menghapus data Tempat Kuliner dan foto
      */
     public function destroy($id)
     {
         DB::beginTransaction();
         try {
             $tempat = TempatKuliner::findOrFail($id);
+
+            // Hapus foto jika ada
+            if ($tempat->foto) {
+                $this->deleteFotoFile($tempat->foto);
+            }
+
             $tempat->delete();
 
             DB::commit();
             return redirect()->back()->with('success', 'Data berhasil dihapus!');
         } catch (\Exception $e) {
             DB::rollBack();
+            Log::error('Error deleting tempat kuliner: ' . $e->getMessage());
             return redirect()->back()->with('error', 'Gagal menghapus data: ' . $e->getMessage());
+        }
+    }
+
+    /**
+     * Hapus foto saja (tanpa hapus data tempat kuliner)
+     */
+    public function deleteFoto($id)
+    {
+        try {
+            $tempat = TempatKuliner::findOrFail($id);
+
+            if ($tempat->foto) {
+                $this->deleteFotoFile($tempat->foto);
+                $tempat->update(['foto' => null]);
+
+                return redirect()->back()->with('success', 'Foto berhasil dihapus!');
+            }
+
+            return redirect()->back()->with('info', 'Tidak ada foto untuk dihapus.');
+        } catch (\Exception $e) {
+            Log::error('Error deleting foto: ' . $e->getMessage());
+            return redirect()->back()->with('error', 'Gagal menghapus foto: ' . $e->getMessage());
+        }
+    }
+
+    /**
+     * Upload foto ke storage
+     *
+     * @param \Illuminate\Http\UploadedFile $file
+     * @return string|null
+     */
+    private function uploadFoto($file)
+    {
+        try {
+            // Generate nama file unik
+            $extension = $file->getClientOriginalExtension();
+            $timestamp = now()->format('Ymd_His');
+            $random = Str::random(8);
+            $fileName = "tempat_{$timestamp}_{$random}.{$extension}";
+
+            // Simpan file ke storage/app/public/tempat_kuliner/
+            $path = $file->storeAs('tempat_kuliner', $fileName, 'public');
+
+            return $fileName;
+        } catch (\Exception $e) {
+            Log::error('Error uploading foto: ' . $e->getMessage());
+            return null;
+        }
+    }
+
+    /**
+     * Hapus file foto dari storage
+     *
+     * @param string $fileName
+     * @return bool
+     */
+    private function deleteFotoFile($fileName)
+    {
+        try {
+            if (Storage::disk('public')->exists('tempat_kuliner/' . $fileName)) {
+                return Storage::disk('public')->delete('tempat_kuliner/' . $fileName);
+            }
+            return true;
+        } catch (\Exception $e) {
+            Log::error('Error deleting foto file: ' . $e->getMessage());
+            return false;
         }
     }
 }

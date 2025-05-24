@@ -25,8 +25,9 @@
                             <div class="card item-card">
                                 <div class="card-body pb-0">
                                     <div class="text-center zoom">
-                                        <img class="w-100 rounded-3"
-                                            src="{{ asset('assets/images/default/foto-tempat.png') }}" alt="img">
+                                        <img class="w-100 rounded-3" src="{{ $tempat->foto_url }}" alt="{{ $tempat->nama }}"
+                                            style="height: 200px; object-fit: cover;"
+                                            onerror="this.src='{{ asset('assets/images/default/foto-tempat.png') }}'">
                                     </div>
                                     <div class="card-body px-0 pb-3">
                                         <div class="row">

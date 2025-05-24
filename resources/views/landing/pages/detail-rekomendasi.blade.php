@@ -31,8 +31,9 @@
                         <div class="card-body">
                             <div class="row align-items-center">
                                 <div class="col-lg-4 col-md-5 text-center mb-4 mb-md-0">
-                                    <img src="{{ asset('assets/images/default/tempat-kuliner.svg') }}"
-                                        alt="{{ $tempat->nama }}" class="img-fluid rounded-3" style="max-height: 300px;">
+                                    <img src="{{ $tempat->foto_url }}" alt="{{ $tempat->nama }}" class="img-fluid rounded-3"
+                                        style="max-height: 300px; width: 100%; object-fit: cover;"
+                                        onerror="this.src='{{ asset('assets/images/default/foto-tempat.png') }}'">
                                 </div>
                                 <div class="col-lg-8 col-md-7">
                                     <h4 class="mb-3">{{ $tempat->nama }}</h4>

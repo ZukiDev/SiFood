@@ -8,7 +8,8 @@
         <div class="row justify-content-center mb-5">
             <div class="col-xl-7">
                 <p class="text-muted fs-15 mb-0 fw-normal">
-                    SiFood telah membantu ribuan pengguna menemukan tempat makan favorit mereka, dari warung legendaris
+                    SiFood telah membantu {{ number_format($statistics['pengguna']) }} pengguna menemukan tempat makan
+                    favorit mereka, dari warung legendaris
                     hingga restoran kekinian.
                 </p>
             </div>
@@ -21,7 +22,8 @@
                             <span class="mb-3 avatar avatar-lg rounded-2 bg-primary-transparent">
                                 <i class='fs-20 fe fe-map-pin'></i>
                             </span>
-                            <h3 class="fw-semibold mb-0 text-dark">150+</h3>
+                            <h3 class="fw-semibold mb-0 text-dark">{{ number_format($statistics['tempat_kuliner']) }}+
+                            </h3>
                             <p class="mb-1 fs-14 op-7 text-muted">Tempat Kuliner Terdaftar</p>
                         </div>
                     </div>
@@ -30,8 +32,8 @@
                             <span class="mb-3 avatar avatar-lg rounded-2 bg-primary-transparent">
                                 <i class='fs-20 fe fe-user'></i>
                             </span>
-                            <h3 class="fw-semibold mb-0 text-dark">1.000+</h3>
-                            <p class="mb-1 fs-14 op-7 text-muted">Pengguna</p>
+                            <h3 class="fw-semibold mb-0 text-dark">{{ number_format($statistics['pengguna']) }}+</h3>
+                            <p class="mb-1 fs-14 op-7 text-muted">Pengguna yang Telah Mencoba</p>
                         </div>
                     </div>
                     <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-3">
@@ -39,8 +41,8 @@
                             <span class="mb-3 avatar avatar-lg rounded-2 bg-primary-transparent">
                                 <i class='fs-20 fe fe-thumbs-up'></i>
                             </span>
-                            <h3 class="fw-semibold mb-0 text-dark">400+</h3>
-                            <p class="mb-1 fs-14 op-7 text-muted">Menu Kuliner</p>
+                            <h3 class="fw-semibold mb-0 text-dark">{{ number_format($statistics['menu']) }}+</h3>
+                            <p class="mb-1 fs-14 op-7 text-muted">Menu Kuliner Tersedia</p>
                         </div>
                     </div>
                     <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-3">
@@ -48,7 +50,7 @@
                             <span class="mb-3 avatar avatar-lg rounded-2 bg-primary-transparent">
                                 <i class='fs-20 fe fe-activity'></i>
                             </span>
-                            <h3 class="fw-semibold mb-0 text-dark">7 Kriteria</h3>
+                            <h3 class="fw-semibold mb-0 text-dark">{{ $statistics['kriteria'] }} Kriteria</h3>
                             <p class="mb-1 fs-14 op-7 text-muted">Untuk Penilaian Objektif</p>
                         </div>
                     </div>

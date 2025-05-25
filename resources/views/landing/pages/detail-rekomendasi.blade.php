@@ -278,7 +278,7 @@
         });
     @endphp
 
-    @if ($tempat->menu && $tempat->menu->count() > 2)
+    @if ($tempat->menu && $tempat->menu->count() > 0)
         <section class="section section-bg" id="menu">
             <div class="container">
                 <p class="fs-12 fw-semibold text-success mb-1 text-center">
@@ -295,7 +295,7 @@
                 </div>
 
                 <!-- Makanan Section -->
-                @if ($makanan->count() > 1)
+                @if ($makanan->count() > 0)
                     <div class="mb-5">
                         <h4 class="fw-semibold mb-4 text-center">
                             <i class="ri-restaurant-2-line me-2"></i> Makanan
@@ -320,7 +320,7 @@
                 @endif
 
                 <!-- Minuman Section -->
-                @if ($minuman->count() > 1)
+                @if ($minuman->count() > 0)
                     <div class="mb-5">
                         <h4 class="fw-semibold mb-4 text-center">
                             <i class="ri-cup-line me-2"></i> Minuman
@@ -345,7 +345,7 @@
                 @endif
 
                 <!-- Menu Lainnya -->
-                @if ($lainnya->count() > 1)
+                @if ($lainnya->count() > 0)
                     <div>
                         <h4 class="fw-semibold mb-4 text-center">
                             <i class="ri-restaurant-line me-2"></i> Menu Lainnya

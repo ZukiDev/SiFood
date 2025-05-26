@@ -53,7 +53,7 @@
 
                                     @if ($tempat->preferensi)
                                         <div class="row mb-4">
-                                            @if ($tempat->preferensi->jumlah_makanan == 1)
+                                            @if ($tempat->preferensi->jumlah_makanan == 0)
                                                 <div class="col-6 col-sm-4 mb-3">
                                                     <div class="d-flex align-items-center">
                                                         <div class="me-2">
@@ -89,7 +89,7 @@
                                                 </div>
                                             @endif
 
-                                            @if ($tempat->preferensi->jumlah_minuman == 1)
+                                            @if ($tempat->preferensi->jumlah_minuman == 0)
                                                 <div class="col-6 col-sm-4 mb-3">
                                                     <div class="d-flex align-items-center">
                                                         <div class="me-2">

@@ -85,7 +85,7 @@ class MenuController extends Controller
             }
 
             // Update preferensi_tempat_kuliner counts
-            $this->updateMenuCounts($tempat_id);
+            // $this->updateMenuCounts($tempat_id);
 
             return redirect()->route('menus.index')
                 ->with('success', "$addedCount menu berhasil ditambahkan.");
@@ -164,14 +164,14 @@ class MenuController extends Controller
                 'deskripsi' => $request->deskripsi,
             ]);
 
-            // Update menu counts if tempat_id has changed
-            if ($oldTempatId != $request->tempat_id) {
-                $this->updateMenuCounts($oldTempatId);
-                $this->updateMenuCounts($request->tempat_id);
-            } else {
-                // Just update the current tempat's menu counts
-                $this->updateMenuCounts($request->tempat_id);
-            }
+            // // Update menu counts if tempat_id has changed
+            // if ($oldTempatId != $request->tempat_id) {
+            //     $this->updateMenuCounts($oldTempatId);
+            //     $this->updateMenuCounts($request->tempat_id);
+            // } else {
+            //     // Just update the current tempat's menu counts
+            //     $this->updateMenuCounts($request->tempat_id);
+            // }
 
             return redirect()->route('menus.index')
                 ->with('success', 'Menu berhasil diupdate.');
@@ -196,7 +196,7 @@ class MenuController extends Controller
             $menu->delete();
 
             // Update menu counts
-            $this->updateMenuCounts($tempat_id);
+            // $this->updateMenuCounts($tempat_id);
 
             return redirect()->route('menus.index')
                 ->with('success', 'Menu berhasil dihapus.');

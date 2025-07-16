@@ -1,48 +1,61 @@
-{{-- <section class="section" id="menu">
-    <div class="container">
-        <p class="fs-12 fw-semibold text-success mb-1 text-center">
-            <span class="landing-section-heading">Menu</span>
+<section class="section section-bg" id="statistics">
+    <div class="container text-center">
+        <p class="fs-12 fw-semibold text-success mb-1">
+            <span class="landing-section-heading">Statistik SiFood</span>
         </p>
         <div class="landing-title"></div>
-        <h3 class="fw-semibold mb-2 text-center">Temukan Menu Favoritmu di SiFood</h3>
-        <div class="row justify-content-center mb-4">
-            <div class="col-xl-8">
-                <p class="text-muted fs-15 mb-3 fw-normal text-center">
-                    SiFood menghadirkan berbagai pilihan kuliner terbaik dari Sidoarjo. Berikut beberapa menu dari
-                    tempat kuliner terdaftar.
+        <h3 class="fw-semibold mb-2">Jelajahi Dunia Kuliner Sidoarjo Lewat Data</h3>
+        <div class="row justify-content-center mb-5">
+            <div class="col-xl-7">
+                <p class="text-muted fs-15 mb-0 fw-normal">
+                    SiFood telah membantu {{ number_format($statistics['pengguna']) }} pengguna menemukan tempat makan
+                    favorit mereka, dari warung legendaris
+                    hingga restoran kekinian.
                 </p>
             </div>
         </div>
-        <div class="row justify-content-center g-4">
-            <!-- Menu Card 1 -->
-            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
-                <div class="card h-100 text-center p-3 shadow-sm">
-                    <img src="{{ asset('assets/images/menu/nasi-uduk.jpg') }}" alt="Nasi Uduk Komplit"
-                        class="img-fluid rounded mb-3">
-                    <h5 class="fw-semibold">Nasi Uduk Komplit</h5>
-                    <span class="badge bg-success">4.7 ★</span>
-                </div>
-            </div>
-
-            <!-- Menu Card 2 -->
-            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
-                <div class="card h-100 text-center p-3 shadow-sm">
-                    <img src="{{ asset('assets/images/menu/bakso.jpg') }}" alt="Bakso Mercon"
-                        class="img-fluid rounded mb-3">
-                    <h5 class="fw-semibold">Bakso Mercon</h5>
-                    <span class="badge bg-success">4.6 ★</span>
-                </div>
-            </div>
-
-            <!-- Menu Card 3 -->
-            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
-                <div class="card h-100 text-center p-3 shadow-sm">
-                    <img src="{{ asset('assets/images/menu/esteh.jpg') }}" alt="Es Teh Jumbo"
-                        class="img-fluid rounded mb-3">
-                    <h5 class="fw-semibold">Es Teh Jumbo</h5>
-                    <span class="badge bg-success">4.8 ★</span>
+        <div class="row g-2 justify-content-center">
+            <div class="col-xl-12">
+                <div class="row justify-content-evenly">
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-3">
+                        <div class="p-3 text-center rounded-2 bg-white border">
+                            <span class="mb-3 avatar avatar-lg rounded-2 bg-primary-transparent">
+                                <i class='fs-20 fe fe-map-pin'></i>
+                            </span>
+                            <h3 class="fw-semibold mb-0 text-dark">{{ number_format($statistics['tempat_kuliner']) }}+
+                            </h3>
+                            <p class="mb-1 fs-14 op-7 text-muted">Tempat Kuliner Terdaftar</p>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-3">
+                        <div class="p-3 text-center rounded-2 bg-white border">
+                            <span class="mb-3 avatar avatar-lg rounded-2 bg-primary-transparent">
+                                <i class='fs-20 fe fe-user'></i>
+                            </span>
+                            <h3 class="fw-semibold mb-0 text-dark">{{ number_format($statistics['pengguna']) }}+</h3>
+                            <p class="mb-1 fs-14 op-7 text-muted">Pengguna yang Telah Mencoba</p>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-3">
+                        <div class="p-3 text-center rounded-2 bg-white border">
+                            <span class="mb-3 avatar avatar-lg rounded-2 bg-primary-transparent">
+                                <i class='fs-20 fe fe-thumbs-up'></i>
+                            </span>
+                            <h3 class="fw-semibold mb-0 text-dark">{{ number_format($statistics['menu']) }}+</h3>
+                            <p class="mb-1 fs-14 op-7 text-muted">Menu Kuliner Tersedia</p>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-3">
+                        <div class="p-3 text-center rounded-2 bg-white border">
+                            <span class="mb-3 avatar avatar-lg rounded-2 bg-primary-transparent">
+                                <i class='fs-20 fe fe-activity'></i>
+                            </span>
+                            <h3 class="fw-semibold mb-0 text-dark">{{ $statistics['kriteria'] }} Kriteria</h3>
+                            <p class="mb-1 fs-14 op-7 text-muted">Untuk Penilaian Objektif</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</section> --}}
+</section>

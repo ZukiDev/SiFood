@@ -123,7 +123,8 @@
                                 kemudahan menemukan tempat makan terbaik!</p>
                         </div>
                         <div class="col-md-4 text-center">
-                            <a href="#fitur" class="btn btn-success btn-lg px-4 py-2 rounded-pill fw-bold shadow-lg">
+                            <a href="{{ route('preferensi.index') }}"
+                                class="btn btn-success btn-lg px-4 py-2 rounded-pill fw-bold shadow-lg">
                                 <i class="ri-search-2-line me-2"></i>
                                 Mulai Pencarian
                             </a>

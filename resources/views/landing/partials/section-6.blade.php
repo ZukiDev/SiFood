@@ -36,7 +36,7 @@
                     <div class="card custom-card shadow-lg border-0 overflow-hidden">
                         <div class="card-body p-0 position-relative">
                             <!-- Video overlay with play button -->
-                            <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center"
+                            {{-- <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center"
                                 style="background: rgba(0,0,0,0.3); z-index: 10;">
                                 <div class="text-center">
                                     <div class="bg-white bg-opacity-90 rounded-circle d-inline-flex align-items-center justify-content-center mb-3 shadow-lg"
@@ -46,7 +46,7 @@
                                     <h5 class="text-white fw-bold mb-2">Tonton Tutorial</h5>
                                     <p class="text-white-50 small mb-0">Durasi: 1 menit</p>
                                 </div>
-                            </div>
+                            </div> --}}
 
                             <div class="ratio ratio-16x9">
                                 <video controls class="w-100 h-100 rounded"
